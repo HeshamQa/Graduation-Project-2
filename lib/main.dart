@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
-import 'package:gradproject2/View/Screen/Login/LoginScreen.dart';
+import 'package:gradproject2/Utils/Static/route.dart';
+import 'View/Screen/LogInScreen/LoginScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,14 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return GetMaterialApp(
-      theme: ThemeData(
-        primaryColor: greenlight,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: LoginScreen(),
-      ),
+       title: 'Flutter Demo',
+       theme: ThemeData(
+         appBarTheme: const AppBarTheme(centerTitle: true,),
+         colorScheme: ColorScheme.fromSeed(seedColor: greenlight),
+         useMaterial3: true,
+       ),
+       debugShowCheckedModeBanner: false,
+       home: const LoginScreen(),
+       routes: route,
      );
   }
 }

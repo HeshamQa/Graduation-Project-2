@@ -1,5 +1,12 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:pandabar/pandabar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:gradproject2/Utils/Static/SizeConfig.dart';
+import 'package:gradproject2/Utils/Widget/LogoText.dart';
+import 'package:gradproject2/View/Screen/HomeScreen/components/drawer.dart';
+
+import '../../../Utils/Widget/NavBar.dart';
+import '../../../controller/GeoLocator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,58 +16,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String page = 'Grey';
+  @override
+  void initState() {
+    determinePosition();
+    super.initState();
+  }
+  List<Marker> marker=[];
+  final Completer<GoogleMapController> _controller =
+  Completer<GoogleMapController>();
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(32.53522628114934, 35.86376075756249),
+    zoom: 10,
+  );
+
+  static const CameraPosition _kLake = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(37.43296265331129, -122.08832357078792),
+      tilt: 59.440717697143555,
+      zoom: 19.151926040649414);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      bottomNavigationBar: PandaBar(
-        buttonData: [
-          PandaBarButtonData(
-              id: 'Grey',
-              icon: Icons.dashboard,
-              title: 'Grey'
-          ),
-          PandaBarButtonData(
-              id: 'Blue',
-              icon: Icons.book,
-              title: 'Blue'
-          ),
-          PandaBarButtonData(
-              id: 'Red',
-              icon: Icons.account_balance_wallet,
-              title: 'Red'
-          ),
-          PandaBarButtonData(
-              id: 'Yellow',
-              icon: Icons.notifications,
-              title: 'Yellow'
-          ),
-        ],
-        onChange: (id) {
-          setState(() {
-            page = id;
-          });
-        },
-        onFabButtonPressed: () {
+    // String page='';
 
-        },
+    return Scaffold(
+      appBar: AppBar(
+        title: const LogoText(),
       ),
-        body: Builder(
-        builder: (context) {
-          switch (page) {
-            case 'Grey':
-              return Container(color: Colors.grey.shade900);
-            case 'Blue':
-              return Container(color: Colors.blue.shade900);
-            case 'Red':
-              return Container(color: Colors.red.shade900);
-            case 'Yellow':
-              return Container(color: Colors.yellow.shade700);
-            default:
-              return Container();
-          }
-        }
-    ),);
+      drawer: const CustomDrawer(),
+      bottomNavigationBar: NavBar(),
+        body: SizedBox(
+          width: getProportionateScreenWidth(375),
+          child: GoogleMap(
+            mapType: MapType.normal,
+            initialCameraPosition: _kGooglePlex,
+            onMapCreated: (GoogleMapController controller) {
+              _controller.complete(controller);
+            },
+          ),
+        ),
+    );
   }
 }
