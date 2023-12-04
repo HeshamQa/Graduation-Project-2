@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/View/Screen/Login/LoginScreen.dart';
 
 void main() {
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      return GetMaterialApp(
+      theme: ThemeData(
+        primaryColor: greenlight,
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         resizeToAvoidBottomInset: false,
