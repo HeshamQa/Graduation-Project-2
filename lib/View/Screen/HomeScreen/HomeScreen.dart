@@ -47,10 +47,15 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SizedBox(
           width: getProportionateScreenWidth(375),
           child: GoogleMap(
+            markers: marker.toSet(),
             mapType: MapType.normal,
             initialCameraPosition: _kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
+            },
+            onTap: (argument) {
+              marker.add(Marker(markerId: const MarkerId('0'),position: LatLng(argument.latitude, argument.longitude)));
+              setState(() {});
             },
           ),
         ),
