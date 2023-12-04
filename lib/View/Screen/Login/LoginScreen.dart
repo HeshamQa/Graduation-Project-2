@@ -13,12 +13,13 @@ class LoginScreen extends StatelessWidget {
     Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(alignment :Alignment.center ,  child: Text("ORGAgriculture", style: TextStyle(color: greendark,fontSize: 35),),)
+        Container(alignment :Alignment.center ,  child: const Text("ORGAgriculture", style: TextStyle(color: greendark,fontSize: 35),),)
          , SizedBox(height: getProportionateScreenHeight(25),),
         Padding(padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(25)),child: Column(
           children: [
-            TextForm(),  
+            const TextForm(hint: 'Enter your Email', label: 'Email',),
               SizedBox(height: getProportionateScreenHeight(25),),
+            const TextForm(hint: 'Enter your Email', label: 'Email',),
           ],
         )),
       ],
