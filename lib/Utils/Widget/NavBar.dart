@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gradproject2/View/Screen/ForumScreen/ForumScreen.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
+import 'package:gradproject2/View/Screen/ReportScreen/ReportScreen.dart';
+import 'package:gradproject2/View/Screen/StatisticsScreen/StatisticsScreen.dart';
 import 'package:pandabar/pandabar.dart';
 
 import '../Static/StaticColor.dart';
 
 class NavBar extends StatefulWidget {
-  NavBar({super.key});
+  final String id;
+  const NavBar({super.key, required this.id});
 
   @override
   State<NavBar> createState() => _NavBarState();
@@ -17,39 +22,49 @@ class _NavBarState extends State<NavBar> {
     return PandaBar(
       buttonData: [
         PandaBarButtonData(
-            id: 'Grey',
+            id: 'Crops',
             icon: Icons.dashboard,
-            title: 'Grey'
+            title: 'Crops'
         ),
         PandaBarButtonData(
-            id: 'Blue',
-            icon: Icons.book,
-            title: 'Blue'
+            id: 'Statistics',
+            icon: Icons.add_chart_outlined,
+            title: 'Statistics'
         ),
         PandaBarButtonData(
-            id: 'Red',
-            icon: Icons.account_balance_wallet,
-            title: 'Red'
+            id: 'Messages',
+            icon: Icons.message_outlined,
+            title: 'Messages'
         ),
         PandaBarButtonData(
-            id: 'Yellow',
-            icon: Icons.notifications,
-            title: 'Yellow'
+            id: 'Report',
+            icon: Icons.add_chart_outlined,
+            title: 'Report'
         ),
       ],
       backgroundColor: white,
-      buttonSelectedColor: greendark,
+      buttonSelectedColor: Colors.grey,
       fabColors: const [
         Color(0xff58E680),
         Color(0xff1DAB45),
       ],
+
       fabIcon: const Icon(Icons.home,color: white,),
       onChange: (id) {
         setState(() {
+          if(id=='Statistics'){
+            Get.off(const StatisticsScreen());
+          }
+          else if(id=='Report'){
+            Get.off(const ReportScreen());
+          }
+          else if(id=='Messages'){
+            Get.off(const ForumScreen());
+          }
         });
       },
       onFabButtonPressed: () {
-        HomeScreen();
+        Get.off(const HomeScreen());
         setState(() {});
       },
     );

@@ -42,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const LogoText(),
       ),
       drawer: const CustomDrawer(),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: const NavBar(id: 'Home',),
         body: SizedBox(
           width: getProportionateScreenWidth(375),
           child: GoogleMap(
