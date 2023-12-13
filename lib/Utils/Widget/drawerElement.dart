@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../Utils/Static/SizeConfig.dart';
+import '../Static/SizeConfig.dart';
 
 class DrawerElements extends StatelessWidget {
 

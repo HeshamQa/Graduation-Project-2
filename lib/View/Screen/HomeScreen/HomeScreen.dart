@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
-import 'package:gradproject2/View/Screen/HomeScreen/components/drawer.dart';
+import 'package:gradproject2/Utils/Widget/drawer.dart';
 import '../../../Utils/Widget/NavBar.dart';
 import '../../../controller/GeoLocator.dart';
 
@@ -35,8 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
       zoom: 19.151926040649414);
   @override
   Widget build(BuildContext context) {
-    // String page='';
-
     return Scaffold(
       appBar: AppBar(
         title: const LogoText(),
