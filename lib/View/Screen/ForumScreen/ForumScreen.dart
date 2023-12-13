@@ -12,9 +12,7 @@ class ForumScreen extends StatelessWidget {
         title: const LogoText(),
       ),
       bottomNavigationBar: const NavBar(id: 'Messages'),
-      body: ListView.builder(itemBuilder: (context, index) => Container(
-
-      ),),
+      body: Container(),
     );
   }
 }

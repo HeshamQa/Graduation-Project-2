@@ -54,12 +54,14 @@ class _NavBarState extends State<NavBar> {
         setState(() {
           if(id=='Statistics'){
             Get.off(const StatisticsScreen());
+            print("1");
           }
           else if(id=='Report'){
-            Get.off(const ReportScreen());
+            Get.off(const ReportScreen());  print("1");
           }
           else if(id=='Messages'){
             Get.off(const ForumScreen());
+          print("3");
           }
         });
       },
