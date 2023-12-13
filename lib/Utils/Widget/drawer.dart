@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gradproject2/View/Screen/ProfileScreen/ProfileScreen.dart';
 import '../Static/SizeConfig.dart';
 import 'drawerElement.dart';
 
@@ -16,7 +18,9 @@ class CustomDrawer extends StatelessWidget {
           SizedBox(height: getProportionateScreenHeight(50),),
           DrawerElements(
             icon: Icons.person_2_outlined,
-            text: "Profile", ontap: (){},
+            text: "Profile", ontap: (){
+              Get.to(const ProfileScreen());
+          },
           ),
           DrawerElements(
             icon: Icons.language,
