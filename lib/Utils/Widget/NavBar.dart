@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject2/View/Screen/CropsScreen/CropsScreen.dart';
 import 'package:gradproject2/View/Screen/ForumScreen/ForumScreen.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
 import 'package:gradproject2/View/Screen/ReportScreen/ReportScreen.dart';
@@ -54,14 +55,15 @@ class _NavBarState extends State<NavBar> {
         setState(() {
           if(id=='Statistics'){
             Get.off(const StatisticsScreen());
-            print("1");
           }
           else if(id=='Report'){
-            Get.off(const ReportScreen());  print("1");
+            Get.off(const ReportScreen());
           }
           else if(id=='Messages'){
             Get.off(const ForumScreen());
-          print("3");
+          }
+          else if(id=='Crops'){
+            Get.off(const CropsScreen());
           }
         });
       },

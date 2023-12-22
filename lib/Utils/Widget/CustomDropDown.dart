@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+import '../Static/SizeConfig.dart';
+import '../Static/StaticColor.dart';
+
+class CustomDropDown extends StatefulWidget {
+  const CustomDropDown({super.key});
+
+  @override
+  State<CustomDropDown> createState() => _CustomDropDownState();
+}
+
+class _CustomDropDownState extends State<CustomDropDown> {
+  String selectedValue = "22";
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: getProportionateScreenWidth(375),
+      decoration: BoxDecoration(
+          border: Border.all(color: greendark),
+          borderRadius: BorderRadius.circular(10)),
+      child: DropdownButton(
+        underline: Container(color: Colors.white),
+        isExpanded: true,
+        alignment: Alignment.center,
+        value: selectedValue,
+        padding: EdgeInsets.symmetric(
+            horizontal: getProportionateScreenWidth(10)),
+        onChanged: (String? newValue) {
+          setState(() {
+            selectedValue = newValue!;
+          });
+        },
+        items: menuItems,
+      ),
+    );
+  }
+}
+List<DropdownMenuItem<String>> menuItems = [
+  const DropdownMenuItem(child: Text("2022"), value: "22"),
+  const DropdownMenuItem(child: Text("2021"), value: "21"),
+  const DropdownMenuItem(child: Text("2020"), value: "20"),
+  const DropdownMenuItem(child: Text("2019"), value: "19"),
+  const DropdownMenuItem(child: Text("2018"), value: "18"),
+  const DropdownMenuItem(child: Text("2017"), value: "17"),
+];

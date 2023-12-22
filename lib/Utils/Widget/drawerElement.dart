@@ -6,7 +6,7 @@ class DrawerElements extends StatelessWidget {
   final IconData icon;
   final String text;
   final Function() ontap;
-  DrawerElements({super.key, required this.icon, required this.text, required this.ontap});
+  const DrawerElements({super.key, required this.icon, required this.text, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
