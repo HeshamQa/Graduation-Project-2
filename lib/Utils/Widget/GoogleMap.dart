@@ -41,10 +41,8 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
       child: GoogleMap(
         cameraTargetBounds: CameraTargetBounds(
           LatLngBounds(
-            southwest: LatLng(29.375534,34.886953),
-            // Adjusted for the southwest corner of Jordan
-            northeast: LatLng(
-                33.176641,37.336934), // Adjusted for the northeast corner of Jordan
+            southwest: LatLng(29.375534, 34.886953),
+            northeast: LatLng(33.176641, 37.336934),
           ),
         ),
         zoomControlsEnabled: true,
