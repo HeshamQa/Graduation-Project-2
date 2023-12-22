@@ -71,7 +71,9 @@ class ForumScreen extends StatelessWidget {
                         height: getProportionateScreenHeight(10),
                       ),
                       InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(AppRoute.comments);
+                          },
                           child: const Text(
                             'Comments',
                             style: TextStyle(
