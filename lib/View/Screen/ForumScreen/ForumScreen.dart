@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/Utils/Widget/NavBar.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/LogoText.dart';
@@ -22,7 +24,9 @@ class ForumScreen extends StatelessWidget {
           children: [
             SizedBox(height: getProportionateScreenHeight(15),),
             InkWell(
-                onTap: (){},
+                onTap: (){
+                  Get.toNamed(AppRoute.addnewpost);
+                },
                 child: const Text('+ Add New Post',style: TextStyle(color: Colors.blue),)),
             SizedBox(height: getProportionateScreenHeight(10),),
             Expanded(
