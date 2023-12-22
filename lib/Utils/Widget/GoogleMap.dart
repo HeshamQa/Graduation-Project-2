@@ -24,8 +24,8 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(32.53522628114934, 35.86376075756249),
-    zoom: 10,
+    target: LatLng(31.063287, 36.240675),
+    zoom: 7.8,
   );
 
   static const CameraPosition _kLake = CameraPosition(
@@ -39,6 +39,15 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     return SizedBox(
       width: getProportionateScreenWidth(375),
       child: GoogleMap(
+        cameraTargetBounds: CameraTargetBounds(
+          LatLngBounds(
+            southwest: LatLng(29.375534,34.886953),
+            // Adjusted for the southwest corner of Jordan
+            northeast: LatLng(
+                33.176641,37.336934), // Adjusted for the northeast corner of Jordan
+          ),
+        ),
+        zoomControlsEnabled: true,
         markers: marker.toSet(),
         mapType: MapType.normal,
         initialCameraPosition: _kGooglePlex,
