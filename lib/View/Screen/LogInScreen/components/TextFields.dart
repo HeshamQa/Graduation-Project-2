@@ -3,12 +3,12 @@ import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../Utils/Widget/TextForm.dart';
 
 class TextFields extends StatelessWidget {
-  const TextFields({super.key});
+  final TextEditingController emailEditingController;
+  final TextEditingController passwordEditingController;
+  const TextFields({super.key,required this.emailEditingController,required this.passwordEditingController});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailEditingController=TextEditingController();
-    TextEditingController passwordEditingController=TextEditingController();
     return Column(
       children: [
         TextForm(
