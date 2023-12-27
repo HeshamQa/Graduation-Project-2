@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
+import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
 import 'package:gradproject2/Utils/Widget/GoogleMap.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/drawer.dart';
@@ -31,7 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
       drawer: const CustomDrawer(),
       bottomNavigationBar: const NavBar(id: 'Home'),
-      body: const GoogleMapWidget(),
+      body: Column(
+        children: [
+          const CustomDropDown(),
+          SizedBox(height: getProportionateScreenHeight(25),),
+          const Expanded(child: GoogleMapWidget()),
+        ],
+      ),
     );
   }
 }

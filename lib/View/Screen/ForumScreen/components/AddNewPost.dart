@@ -9,26 +9,29 @@ class AddNewPost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create Post"),
+        title: const Text("Add Post"),
+        actions: [
+          IconButton(onPressed: (){}, icon: const Icon(Icons.send,color: greendark,))
+        ],
       ),
       body: Column(
         children: [
           Row(
             children: [
               Container(
-                margin: EdgeInsets.only(right: 20,left: 4),
+                margin: const EdgeInsets.only(right: 20,left: 4),
                 height: getProportionateScreenHeight(50),
                 width: getProportionateScreenWidth(50),
                 decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(50.0)),
               ),
-              Text("Full Name User",style: TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold)),
+              const Text("Full Name User",style: TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold)),
 
             ],
           ),
           SizedBox(height: getProportionateScreenHeight(20),),
-          TextField(
+          const TextField(
             decoration: InputDecoration(
               border: UnderlineInputBorder(borderSide: BorderSide.none),
               hintText: 'Enter your post here',
@@ -38,14 +41,14 @@ class AddNewPost extends StatelessWidget {
 
           Row(
             children: [
-              Icon(Icons.photo_library,color: greenlight),
-              Text("  Add Photo"),
+              const Icon(Icons.photo_library,color: greenlight),
+              const Text("  Add Photo"),
               SizedBox(width: getProportionateScreenWidth(30),),
-              Icon(Icons.location_on_sharp , color: Colors.red),
-              Text("  Check in"),
+              const Icon(Icons.location_on_sharp , color: Colors.red),
+              const Text("  Check in"),
               SizedBox(width: getProportionateScreenWidth(35),),
-              Icon(Icons.event , color: Colors.red),
-              Text("Select calendars"),
+              const Icon(Icons.event , color: Colors.red),
+              const Text("Select calendars"),
             ],
           ),
         ],
