@@ -4,14 +4,15 @@ import '../Static/SizeConfig.dart';
 import '../Static/StaticColor.dart';
 
 class CustomDropDown extends StatefulWidget {
-  const CustomDropDown({super.key});
+  String selectedValue;
+  List<DropdownMenuItem<String>> menuItems;
+  CustomDropDown({super.key,required this.selectedValue,required this.menuItems});
 
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
 }
 
 class _CustomDropDownState extends State<CustomDropDown> {
-  String selectedValue = "22";
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,24 +24,16 @@ class _CustomDropDownState extends State<CustomDropDown> {
         underline: Container(color: Colors.white),
         isExpanded: true,
         alignment: Alignment.center,
-        value: selectedValue,
+        value: widget.selectedValue,
         padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(10)),
         onChanged: (String? newValue) {
           setState(() {
-            selectedValue = newValue!;
+            widget.selectedValue = newValue!;
           });
         },
-        items: menuItems,
+        items: widget.menuItems,
       ),
     );
   }
 }
-List<DropdownMenuItem<String>> menuItems = [
-  const DropdownMenuItem(value: "22", child: Text("2022")),
-  const DropdownMenuItem(value: "21", child: Text("2021")),
-  const DropdownMenuItem(value: "20", child: Text("2020")),
-  const DropdownMenuItem(value: "19", child: Text("2019")),
-  const DropdownMenuItem(value: "18", child: Text("2018")),
-  const DropdownMenuItem(value: "17", child: Text("2017")),
-];

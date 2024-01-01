@@ -7,6 +7,7 @@ import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../Utils/Widget/CustomButton.dart';
 import '../../../../Utils/Widget/CustomDropDown.dart';
 import '../../../../Utils/Widget/CustomRadioButton.dart';
+import '../../../../models/dropdown_model.dart';
 
 class StatisticsBody extends StatelessWidget {
   const StatisticsBody({super.key});
@@ -27,15 +28,15 @@ class StatisticsBody extends StatelessWidget {
           SizedBox(
             height: getProportionateScreenHeight(10),
           ),
-          const CustomDropDown(),
+          CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item),
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          const CustomDropDown(),
+          CustomDropDown(selectedValue: dropdownlist[1].value,menuItems: dropdownlist[1].item),
           SizedBox(
             height: getProportionateScreenHeight(20),
           ),
-          const CustomDropDown(),
+          CustomDropDown(selectedValue: dropdownlist[2].value,menuItems: dropdownlist[2].item),
           SizedBox(height: getProportionateScreenHeight(5),),
           const CustomRadioButton(),
           SizedBox(height: getProportionateScreenHeight(15),),

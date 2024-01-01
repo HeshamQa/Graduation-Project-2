@@ -5,6 +5,7 @@ import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
 import 'package:gradproject2/Utils/Widget/CustomRadioButton.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 
+import '../../../models/dropdown_model.dart';
 import 'components/ShowContainer.dart';
 
 class StatisticsShowScreen extends StatelessWidget {
@@ -22,11 +23,11 @@ class StatisticsShowScreen extends StatelessWidget {
           children: [
             const ShowContainer(),
             SizedBox(height: getProportionateScreenHeight(50)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item),
             SizedBox(height: getProportionateScreenHeight(25)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[1].value,menuItems: dropdownlist[1].item),
             SizedBox(height: getProportionateScreenHeight(25)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[2].value,menuItems: dropdownlist[2].item),
             SizedBox(height: getProportionateScreenHeight(15)),
             const CustomRadioButton(),
             const Spacer(),

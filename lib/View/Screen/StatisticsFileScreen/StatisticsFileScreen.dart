@@ -6,6 +6,7 @@ import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/CustomButton.dart';
 import '../../../Utils/Widget/CustomDropDown.dart';
 import '../../../Utils/Widget/CustomRadioButton.dart';
+import '../../../models/dropdown_model.dart';
 
 class StatisticsFileScreen extends StatelessWidget {
   const StatisticsFileScreen({super.key});
@@ -22,11 +23,11 @@ class StatisticsFileScreen extends StatelessWidget {
             SizedBox(height: getProportionateScreenHeight(35)),
             CustomButton(text: 'Download File', onTap: (){}),
             SizedBox(height: getProportionateScreenHeight(35)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item,),
             SizedBox(height: getProportionateScreenHeight(25)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[1].value,menuItems: dropdownlist[1].item),
             SizedBox(height: getProportionateScreenHeight(25)),
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: dropdownlist[2].value,menuItems: dropdownlist[2].item),
             SizedBox(height: getProportionateScreenHeight(15)),
             const CustomRadioButton(),
             const Spacer(),

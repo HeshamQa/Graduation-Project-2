@@ -1,18 +1,21 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../Utils/Widget/TextForm.dart';
 
-class SignUpFields extends StatelessWidget {
+class SignUpFields extends StatefulWidget {
   const SignUpFields({super.key,});
 
   @override
+  State<SignUpFields> createState() => _SignUpFieldsState();
+}
+TextEditingController userNameEditingController=TextEditingController();
+TextEditingController emailEditingController=TextEditingController();
+TextEditingController passwordEditingController=TextEditingController();
+TextEditingController reSetPasswordEditingController=TextEditingController();
+class _SignUpFieldsState extends State<SignUpFields> {
+  @override
   Widget build(BuildContext context) {
-    TextEditingController userNameEditingController=TextEditingController();
-    TextEditingController emailEditingController=TextEditingController();
-    TextEditingController passwordEditingController=TextEditingController();
-    TextEditingController reSetPasswordEditingController=TextEditingController();
     return Column(
       children: [
         TextForm(

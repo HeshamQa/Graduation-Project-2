@@ -8,6 +8,8 @@ import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/NavBar.dart';
 import 'package:gradproject2/Utils/Widget/drawer.dart';
 
+import '../../../models/dropdown_model.dart';
+
 class CropsScreen extends StatefulWidget {
   const CropsScreen({super.key});
 
@@ -16,6 +18,14 @@ class CropsScreen extends StatefulWidget {
 }
 
 class _CropsScreenState extends State<CropsScreen> {
+  List<DropdownMenuItem<String>> menuItems = [
+    const DropdownMenuItem(value: "22", child: Text("2022")),
+    const DropdownMenuItem(value: "21", child: Text("2021")),
+    const DropdownMenuItem(value: "20", child: Text("2020")),
+    const DropdownMenuItem(value: "19", child: Text("2019")),
+    const DropdownMenuItem(value: "18", child: Text("2018")),
+    const DropdownMenuItem(value: "17", child: Text("2017")),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +47,7 @@ class _CropsScreenState extends State<CropsScreen> {
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: getProportionateScreenHeight(15)),
-                const CustomDropDown(),
+                CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item),
                 const CustomRadioButton(),
                 CustomButton(text: 'Show', onTap: () {}),
                 SizedBox(height: getProportionateScreenHeight(10),),

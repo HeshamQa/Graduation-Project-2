@@ -9,6 +9,14 @@ class AddCrop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<DropdownMenuItem<String>> menuItems = [
+      const DropdownMenuItem(value: "22", child: Text("2022")),
+      const DropdownMenuItem(value: "21", child: Text("2021")),
+      const DropdownMenuItem(value: "20", child: Text("2020")),
+      const DropdownMenuItem(value: "19", child: Text("2019")),
+      const DropdownMenuItem(value: "18", child: Text("2018")),
+      const DropdownMenuItem(value: "17", child: Text("2017")),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add New Crops"),
@@ -19,14 +27,14 @@ class AddCrop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ///drop down for location
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: '20', menuItems: menuItems,),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false),
             SizedBox(height: getProportionateScreenHeight(25),),
             ///drop down for crop
-            const CustomDropDown(),
+            CustomDropDown(selectedValue: '20', menuItems: menuItems,),
             const Spacer(),
             CustomButton(text: 'Save', onTap: (){})
           ],

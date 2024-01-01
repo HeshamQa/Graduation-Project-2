@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
        debugShowCheckedModeBanner: false,
        home: const LoginScreen(),
        routes: route,
+       builder: EasyLoading.init(),
      );
   }
 }
