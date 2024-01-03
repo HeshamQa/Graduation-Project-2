@@ -11,8 +11,13 @@ class CustomDropDown extends StatefulWidget {
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
 }
-
+late String ss;
 class _CustomDropDownState extends State<CustomDropDown> {
+@override
+  void initState() {
+  ss = widget.selectedValue;
+  super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,6 +35,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
         onChanged: (String? newValue) {
           setState(() {
             widget.selectedValue = newValue!;
+            ss = newValue;
           });
         },
         items: widget.menuItems,

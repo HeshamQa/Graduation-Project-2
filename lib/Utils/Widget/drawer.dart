@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/View/Screen/ProfileScreen/ProfileScreen.dart';
+import 'package:gradproject2/View/Screen/weather_screen.dart';
 import '../Static/SizeConfig.dart';
 import 'drawerElement.dart';
 
@@ -27,7 +28,9 @@ class CustomDrawer extends StatelessWidget {
             text: "Language", ontap: (){},
           ),
           DrawerElements(
-              ontap: (){},
+              ontap: (){
+                Get.to(const WeatherScreen());
+              },
               icon: Icons.ac_unit,
               text: "Weather"
           ),

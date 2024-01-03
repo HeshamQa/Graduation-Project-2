@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class DropDownModel {
   String value;
   List<DropdownMenuItem<String>> item;
-
   DropDownModel({required this.value,required this.item});
 }
 List<DropDownModel> dropdownlist=[
