@@ -64,23 +64,37 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     height: getProportionateScreenHeight(150),
                     width: getProportionateScreenWidth(300),
                     child: Consumer<WeatherProvider>(
-                      builder: (BuildContext context, WeatherProvider value, Widget? child) =>
-                          ListView.builder(
-                        itemCount: 10,
+                      builder: (BuildContext context, WeatherProvider value, Widget? child) {
+                        return ListView.builder(
+                        itemCount: value.weatherlist.list!.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 15),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('hour'),
-                              Image.asset('assets/icons/${value.weatherlist.list![index].weather![0].icon}.png'),
-                              const Text('degree')
-                            ],
-                          ),
-                        );
-                      },),
+                          var date=value.weatherlist.list![index].dtTxt!.substring(9,10);
+                          print(date);
+                          print(DateTime.now().toString());
+                          if(DateTime.now().day.toString()==date) {
+                            String hour = value.weatherlist.list![index].dtTxt!
+                                .substring(10, 16);
+                            var temp1 = value.weatherlist.list![index].main!
+                                .temp;
+                            var temp = temp1.toInt();
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 15),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment
+                                    .spaceBetween,
+                                children: [
+                                  Text(temp.toString()),
+                                  Image.asset('assets/icons/${value.weatherlist
+                                      .list![index].weather![0].icon}.png'),
+                                  Text(hour),
+                                ],
+                              ),
+                            );
+                          }
+                      },);
+                      },
                     ),
                   )
                 ],
