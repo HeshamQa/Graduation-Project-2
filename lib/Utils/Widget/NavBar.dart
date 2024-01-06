@@ -55,21 +55,21 @@ class _NavBarState extends State<NavBar> {
       onChange: (id) {
         setState(() {
           if(id=='Statistics'){
-            Get.offAll(const StatisticsScreen());
+            Get.to(() => StatisticsScreen());
           }
           else if(id=='Report'){
-            Get.offAll(ReportScreen());
+            Get.to(() =>ReportScreen());
           }
           else if(id=='Messages'){
-            Get.offAll(const ForumScreen());
+            Get.to(() =>ForumScreen());
           }
           else if(id=='Crops'){
-            Get.offAll(const CropsScreen());
+            Get.to(() =>CropsScreen());
           }
         });
       },
       onFabButtonPressed: () {
-        Get.offAllNamed(AppRoute.home);
+        Get.toNamed(AppRoute.home);
         setState(() {});
       },
     );

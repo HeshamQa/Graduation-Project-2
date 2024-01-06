@@ -5,12 +5,10 @@ import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/Utils/Widget/BackGround.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
-import 'package:gradproject2/controller/auth/signup_controller.dart';
 import '../../../Controller/Class/Crud.dart';
 import '../../../Controller/Class/Links.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/TextForm.dart';
-import 'components/SignUpFields.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController userNameEditingController =

@@ -4,56 +4,30 @@ import 'package:gradproject2/Controller/Class/Crud.dart';
 import 'dart:convert';
 import '../../models/reports_model.dart';
 import '../Class/Links.dart';
-
-// class ReportController extends GetxController {
-//   var isLoading = false.obs;
-//   var reports = <Map<String, dynamic>>[].obs;
-//   Crud _crud = Crud();
-//
-//   Future<void> fetchReports() async {
-//     isLoading(true);
-//     try {
-//       var response = await _crud.getRequest(LinkReports);
-//       print(response);
-//       if (response.statusCode == 200) {
-//         var data = json.decode(response.body);
-//         if (data['status'] == "s") {
-//           reports.assignAll(data['data']);
-//         } else {
-//           print("Error: ${data['message']}");
-//         }
-//       } else {
-//         print("Error: ${response.statusCode}");
-//       }
-//     } catch (e) {
-//       print("Error occurred: $e");
-//     } finally {
-//       isLoading(false);
-//     }
-//   }
-// }
-
-
 class ReportsProvider extends ChangeNotifier{
   List<ReportsModel> reports=[];
   Crud _crud = Crud();
-  Future<void> fetchReports() async {
+  fetchReports() async {
     try {
-      reports.clear();
+      print(1);
       var response = await _crud.getRequest(LinkReports);
-      print(response);
-      if (response.statusCode == 200) {
-        var data = json.decode(response.body);
-        if (data['status'] == "s") {
-          reports.assignAll(data['data']);
-        } else {
-          print("Error: ${data['message']}");
+      print(2);
+      if (response is Map) {
+        var data = response['data'];
+        print(3);
+        if (data != null && response['status'] == "s") {
+          print(4);
+          for (var i in response['data']) {
+            print(i);
+            reports.add(ReportsModel.fromJson(i));
+          }
         }
       } else {
-        print("Error: ${response.statusCode}");
+        print("Unexpected response type: ${response.runtimeType}");
       }
     } catch (e) {
       print("Error occurred: $e");
     }
   }
+
 }
