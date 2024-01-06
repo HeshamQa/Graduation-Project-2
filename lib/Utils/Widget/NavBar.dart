@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/View/Screen/CropsScreen/CropsScreen.dart';
 import 'package:gradproject2/View/Screen/ForumScreen/ForumScreen.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
@@ -54,21 +55,21 @@ class _NavBarState extends State<NavBar> {
       onChange: (id) {
         setState(() {
           if(id=='Statistics'){
-            Get.off(const StatisticsScreen());
+            Get.offAll(const StatisticsScreen());
           }
           else if(id=='Report'){
-            Get.off(const ReportScreen());
+            Get.offAll(ReportScreen());
           }
           else if(id=='Messages'){
-            Get.off(const ForumScreen());
+            Get.offAll(const ForumScreen());
           }
           else if(id=='Crops'){
-            Get.off(const CropsScreen());
+            Get.offAll(const CropsScreen());
           }
         });
       },
       onFabButtonPressed: () {
-        Get.off(const HomeScreen());
+        Get.offAllNamed(AppRoute.home);
         setState(() {});
       },
     );

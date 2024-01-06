@@ -3,14 +3,15 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
+import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'View/Screen/LogInScreen/LoginScreen.dart';
 late SharedPreferences sharedPreferences;
 
 Future<void> main() async {
-  runApp(const MyApp());
-  WidgetsFlutterBinding.ensureInitialized();
-  sharedPreferences = await SharedPreferences.getInstance();
+   WidgetsFlutterBinding.ensureInitialized();                  
+   sharedPreferences = await SharedPreferences.getInstance();
+   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -26,8 +27,8 @@ class MyApp extends StatelessWidget {
          useMaterial3: true,
        ),
        debugShowCheckedModeBanner: false,
-       home: const LoginScreen(),
-       routes: route,
+        home: const LoginScreen(),
+        routes: route,
        builder: EasyLoading.init(),
      );
   }

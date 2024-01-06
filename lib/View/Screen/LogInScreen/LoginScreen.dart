@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/BackGround.dart';
-import 'package:gradproject2/controller/auth/login_controller.dart';
+import 'package:gradproject2/controller/auth/Report_controller.dart';
 import '../../../Controller/Class/Crud.dart';
 import '../../../Controller/Class/Links.dart';
 import '../../../Utils/Static/route.dart';
