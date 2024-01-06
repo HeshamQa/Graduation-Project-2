@@ -10,7 +10,7 @@ import '../../View/Screen/SignUpScreen/SignUpScreen.dart';
 
 Map<String, Widget Function(BuildContext)> route = {
   AppRoute.login: (context) => const LoginScreen(),
-  AppRoute.signup: (context) => const SignUpScreen(),
+  AppRoute.signup: (context) => SignUpScreen(),
   AppRoute.forget: (context) => const ForgetPassword(),
   AppRoute.home: (context) => const HomeScreen(),
   AppRoute.addnewpost: (context) => const AddNewPost(),

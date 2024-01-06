@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradproject2/main.dart';
 import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../Utils/Widget/TextForm.dart';
 
@@ -14,7 +15,7 @@ class TextForms extends StatelessWidget {
             hint: 'Enter Your Name',
             label: 'Name',
             textEditingController:
-                TextEditingController(text: 'Hesham & Hajras'),
+                TextEditingController(text: sharedPreferences.getString("User_Name")),
             obscure: false),
         SizedBox(height: getProportionateScreenHeight(5),),
         InkWell(onTap: () {}, child: const Text('Change')),
@@ -23,18 +24,12 @@ class TextForms extends StatelessWidget {
             hint: 'Enter Your Email',
             label: 'Email',
             textEditingController:
-                TextEditingController(text: 'QaoudQa@gmail.com'),
+                TextEditingController(text: sharedPreferences.getString("Email")),
             obscure: false),
         SizedBox(height: getProportionateScreenHeight(5),),
         InkWell(onTap: () {}, child: const Text('Change')),
         SizedBox(height: getProportionateScreenHeight(20)),
-        TextForm(
-            hint: 'Enter Your Password',
-            label: 'Password',
-            textEditingController: TextEditingController(text: '123123213'),
-            obscure: true),
-        SizedBox(height: getProportionateScreenHeight(5),),
-        InkWell(onTap: () {}, child: const Text('Change')),
+
       ],
     );
   }

@@ -20,38 +20,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     super.initState();
   }
 
-  List<Marker> marker = [
-    const Marker(
-      markerId: MarkerId('Irbid'),
-      position: LatLng(32.5556, 35.8498),
-
-    ),
-    const Marker(
-      markerId: MarkerId('Amman'),
-      position: LatLng(31.9632, 35.9306),
-      infoWindow: InfoWindow(title: "Production",snippet: ""),
-    ),
-    const Marker(
-      markerId: MarkerId('Zarqa'),
-      position: LatLng(32.0836, 36.1058),
-    ),
-    const Marker(
-        markerId: MarkerId('Aqaba'),
-      position: LatLng(29.5319, 35.0061),
-    ),
-    const Marker(
-      markerId: MarkerId('Madaba'),
-      position: LatLng(31.7188, 35.7937),
-    ),
-    const Marker(
-      markerId: MarkerId('Karak'),
-      position: LatLng(31.1800, 35.7047),
-    ),
-    const Marker(
-      markerId: MarkerId("Ma'an"),
-      position: LatLng(30.1920, 35.7361),
-    ),
-  ];
+  List<Marker> marker = [];
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
   static const CameraPosition _kGooglePlex = CameraPosition(
@@ -72,8 +41,8 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
       child: GoogleMap(
         cameraTargetBounds: CameraTargetBounds(
           LatLngBounds(
-            southwest: const LatLng(29.0000,34.5000),
-            northeast: const LatLng(33.5000,39.3000),
+            southwest: LatLng(29.375534, 34.886953),
+            northeast: LatLng(33.176641, 37.336934),
           ),
         ),
         zoomControlsEnabled: true,
@@ -83,7 +52,12 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
-        onTap: (argument) {},
+        onTap: (argument) {
+          marker.add(Marker(
+              markerId: const MarkerId('0'),
+              position: LatLng(argument.latitude, argument.longitude)));
+          setState(() {});
+        },
       ),
     );
   }
