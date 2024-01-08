@@ -1,8 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
-import '../../../../Controller/auth/Report_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../../../Controller/auth/report_provider.dart';
 import '../../../../Utils/Static/SizeConfig.dart';
 
 class ReportBuilder extends StatefulWidget {
@@ -15,8 +14,12 @@ class ReportBuilder extends StatefulWidget {
 }
 
 class _ReportBuilderState extends State<ReportBuilder> {
-
-
+  late Uri url;
+  @override
+  void initState() {
+    Provider.of<ReportsProvider>(context,listen: false).fetchReports();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Consumer<ReportsProvider>(
@@ -39,12 +42,16 @@ class _ReportBuilderState extends State<ReportBuilder> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text(value.reports[index].Time,style: TextStyle(fontSize: 20),),
+               Text('${value.reports[index].Time} Report',style: const TextStyle(fontSize: 20),),
               SizedBox(
                 height: getProportionateScreenHeight(15),
               ),
               InkWell(
-                onTap: (){
+                onTap: () async {
+                  url= Uri.parse(value.reports[index].Url);
+                  if (await canLaunchUrl(url)) {
+                    await launchUrl(url);
+                  }
                 },
                 child: const Text(
                   'Click here',

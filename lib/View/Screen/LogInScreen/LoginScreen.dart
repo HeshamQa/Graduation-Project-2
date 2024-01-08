@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/BackGround.dart';
-import 'package:gradproject2/controller/auth/Report_controller.dart';
 import '../../../Controller/Class/Crud.dart';
-import '../../../Controller/Class/Links.dart';
 import '../../../Utils/Static/route.dart';
 import '../../../Utils/Widget/CustomButton.dart';
 import '../../../Utils/Widget/LogoText.dart';
+import '../../../controller/Class/Links.dart';
 import '../../../main.dart';
 import 'components/Remember&Forget.dart';
 import 'components/SignUpButton.dart';
@@ -21,9 +20,9 @@ class LoginScreen extends StatefulWidget {
 }
 class _LoginScreenState extends State<LoginScreen> {
 
-  Login(BuildContext context) async {
+  logIn(BuildContext context) async {
     try {
-      var response = await _crud.postRequest(LinkLogin, {
+      var response = await _crud.postRequest(linkLogin, {
         "Email": emailEditingController.text,
         "Password": passwordEditingController.text,
 
@@ -36,8 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
           sharedPreferences.setString("Password", response['data']['Password']);
           sharedPreferences.setString("Id_UserType", response['data']['Id_UserType'].toString());
           Get.offAllNamed(AppRoute.home);
-          print("3");
-
         } else if(response['data']['Id_UserType'] == "2"){
           sharedPreferences.setString("Id", response['data']['Id'].toString());
           sharedPreferences.setString("Email", response['data']['Email']);
@@ -45,7 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
           sharedPreferences.setString("Password", response['data']['Password']);
           sharedPreferences.setString("Id_UserType", response['data']['Id_UserType'].toString());
           Get.offAllNamed(AppRoute.home);
-          print("3");
         }
       }
     } catch (e) {
@@ -53,8 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-
-  Crud _crud = Crud();
+  final Crud _crud = Crud();
   TextEditingController emailEditingController=TextEditingController();
   TextEditingController passwordEditingController=TextEditingController();
   @override
@@ -79,9 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 const RememberForget(),
                 SizedBox(height: getProportionateScreenHeight(50)),
                 CustomButton(text: 'LogIn', onTap: () {
-                  print("1");
-                  Login(context);
-
+                  logIn(context);
                   },),
                 SizedBox(height: getProportionateScreenHeight(25)),
                 const SignUpButton(),

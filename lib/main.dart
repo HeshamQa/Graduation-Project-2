@@ -5,10 +5,11 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
+import 'package:gradproject2/controller/auth/comments_provider.dart';
+import 'package:gradproject2/controller/auth/message_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Controller/auth/Report_controller.dart';
-import 'View/Screen/LogInScreen/LoginScreen.dart';
+import 'Controller/auth/report_provider.dart';
 late SharedPreferences sharedPreferences;
 
 Future<void> main() async {
@@ -25,6 +26,8 @@ class MyApp extends StatelessWidget {
      return MultiProvider(
        providers: [
          ChangeNotifierProvider<ReportsProvider>(create: (context) => ReportsProvider(),),
+         ChangeNotifierProvider<MessageProvider>(create: (context) => MessageProvider(),),
+         ChangeNotifierProvider<CommentsProvider>(create: (context) => CommentsProvider(),),
        ],
        child: GetMaterialApp(
          title: 'Flutter Demo',

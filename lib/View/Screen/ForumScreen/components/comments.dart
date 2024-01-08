@@ -3,15 +3,25 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../controller/auth/comments_provider.dart';
+import '../../../../models/message_model.dart';
 
 class Comments extends StatefulWidget {
-  const Comments({super.key});
+  final MessageModel message;
+  const Comments({super.key, required this.message});
 
   @override
   State<Comments> createState() => _CommentsState();
 }
 
 class _CommentsState extends State<Comments> {
+  @override
+  void initState() {
+    Provider.of<CommentsProvider>(context,listen: false).fetchMessage(widget.message.Id);
+    super.initState();
+  }
   TextEditingController comment=TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -46,14 +56,14 @@ class _CommentsState extends State<Comments> {
                     SizedBox(
                       width: getProportionateScreenWidth(10),
                     ),
-                    const Text('User Name'),
+                    Text(widget.message.User_Name),
                   ],
                 ),
                 SizedBox(
                   height: getProportionateScreenHeight(10),
                 ),
-                const Text(
-                  'I have a problem in my planet I have a problem in my planet I have a problem in my planet I have a problem in my planet ',
+                Text(
+                  widget.message.Description,
                 ),
                 SizedBox(
                   height: getProportionateScreenHeight(10),
@@ -62,45 +72,47 @@ class _CommentsState extends State<Comments> {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemCount: 7,
-              itemBuilder: (context, index) =>Container(
-                width: getProportionateScreenWidth(375),
-                padding: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(15),
-                    vertical: getProportionateScreenHeight(15)),
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.symmetric(
-                    horizontal: getProportionateScreenWidth(10),
-                    vertical: getProportionateScreenHeight(5)),
-                decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(0.3),
-                    borderRadius: const BorderRadius.all(Radius.circular(40)),
-                    // boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 5)],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.transparent,
-                          child: Image.asset('assets/images/avatar.png'),
-                        ),
-                        SizedBox(
-                          width: getProportionateScreenWidth(10),
-                        ),
-                        const Text('User Name'),
-                      ],
-                    ),
-                    SizedBox(
-                      height: getProportionateScreenHeight(10),
-                    ),
-                    const Text(
-                      'I have a problem in my planet I have a problem in my planet I have a problem in my planet I have a problem in my planet ',
-                      maxLines: 5,
-                    ),
-                  ],
+            child: Consumer<CommentsProvider>(
+              builder: (BuildContext context, value, Widget? child) => ListView.builder(
+                itemCount: value.comment.length,
+                itemBuilder: (context, index) =>Container(
+                  width: getProportionateScreenWidth(375),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(15),
+                      vertical: getProportionateScreenHeight(15)),
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(
+                      horizontal: getProportionateScreenWidth(10),
+                      vertical: getProportionateScreenHeight(5)),
+                  decoration: BoxDecoration(
+                      color: Colors.grey.withOpacity(0.3),
+                      borderRadius: const BorderRadius.all(Radius.circular(40)),
+                      // boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 5)],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            child: Image.asset('assets/images/avatar.png'),
+                          ),
+                          SizedBox(
+                            width: getProportionateScreenWidth(10),
+                          ),
+                          Text(value.comment[index].User_Name),
+                        ],
+                      ),
+                      SizedBox(
+                        height: getProportionateScreenHeight(10),
+                      ),
+                      Text(
+                        value.comment[index].Description,
+                        maxLines: 5,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

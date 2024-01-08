@@ -3,11 +3,9 @@ import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/View/Screen/CropsScreen/CropsScreen.dart';
 import 'package:gradproject2/View/Screen/ForumScreen/ForumScreen.dart';
-import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
-import 'package:gradproject2/View/Screen/ReportScreen/ReportScreen.dart';
+import 'package:gradproject2/View/Screen/ReportScreen/report_screen.dart';
 import 'package:gradproject2/View/Screen/StatisticsScreen/StatisticsScreen.dart';
 import 'package:pandabar/pandabar.dart';
-
 import '../Static/StaticColor.dart';
 
 class NavBar extends StatefulWidget {

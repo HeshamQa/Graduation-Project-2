@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../controller/GeoLocator.dart';
+import '../../controller/geolocator.dart';
 import '../Static/SizeConfig.dart';
 
 class GoogleMapWidget extends StatefulWidget {

@@ -6,9 +6,9 @@ import 'package:gradproject2/Utils/Widget/BackGround.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import '../../../Controller/Class/Crud.dart';
-import '../../../Controller/Class/Links.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/TextForm.dart';
+import '../../../controller/Class/Links.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController userNameEditingController =
@@ -18,12 +18,12 @@ class SignUpScreen extends StatelessWidget {
       TextEditingController();
   final TextEditingController reSetPasswordEditingController =
       TextEditingController();
-  Crud _crud = Crud();
+  final Crud _crud = Crud();
 
   singUp(BuildContext context) async {
     print("1");
     try {
-      var response = await _crud.postRequest(LinkSingup, {
+      var response = await _crud.postRequest(linkSingup, {
         "User_Name": userNameEditingController.text,
         "Email": emailEditingController.text,
         "Password": passwordEditingController.text,
