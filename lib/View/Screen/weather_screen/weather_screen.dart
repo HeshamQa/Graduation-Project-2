@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
-import 'package:gradproject2/controller/weather_controller.dart';
+import 'package:gradproject2/controller/provider/current_weather_provider.dart';
+import 'package:gradproject2/controller/provider/weather_controller.dart';
 import 'package:gradproject2/models/dropdown_model.dart';
 import 'package:provider/provider.dart';
 
@@ -21,6 +22,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   }
   getWeather(){
     Provider.of<WeatherProvider>(context,listen: false).getProduct(ss);
+    Provider.of<CurrentWeather>(context,listen: false).getProduct(ss);
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               padding: const EdgeInsets.all(10),
               width: getProportionateScreenWidth(375),
               decoration: const BoxDecoration(
-                color: Colors.green,
+                color: Colors.white,
                 boxShadow: [
                   BoxShadow(color: Colors.black54,spreadRadius: 2,blurRadius: 10),
                 ],
@@ -50,18 +52,20 @@ class _WeatherScreenState extends State<WeatherScreen> {
               ),
               child: Column(
                 children: [
-                  const Row(
-                    children: [
-                      Text('day'),
-                      Spacer(),
-                      Text("degree"),
-                      Spacer(),
-                      Text('icon'),
-                    ],
+                  Consumer<CurrentWeather>(
+                    builder: (BuildContext context, CurrentWeather value, Widget? child) => Row(
+                      children: [
+                        const SizedBox(width: 10,),
+                        Text('Date : ${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+                        const Spacer(),
+                        Text('Temp : ${value.currentList.main!.temp!.toInt()}°C',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+                        const SizedBox(width: 10,),
+                      ],
+                    ),
                   ),
-                  const SizedBox(height: 10,),
+                  const SizedBox(height: 25,),
                   SizedBox(
-                    height: getProportionateScreenHeight(150),
+                    height: getProportionateScreenHeight(160),
                     width: getProportionateScreenWidth(300),
                     child: Consumer<WeatherProvider>(
                       builder: (BuildContext context, WeatherProvider value, Widget? child) {
@@ -70,8 +74,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           var date=value.weatherlist.list![index].dtTxt!.substring(9,10);
-                          print(date);
-                          print(DateTime.now().toString());
                           if(DateTime.now().day.toString()==date) {
                             String hour = value.weatherlist.list![index].dtTxt!
                                 .substring(10, 16);
@@ -83,16 +85,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                   horizontal: 15),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment
-                                    .spaceBetween,
+                                    .spaceAround,
                                 children: [
-                                  Text(temp.toString()),
+                                  Text('$temp°C',style: const TextStyle(fontSize: 19,fontWeight: FontWeight.bold)),
                                   Image.asset('assets/icons/${value.weatherlist
                                       .list![index].weather![0].icon}.png'),
-                                  Text(hour),
+                                  Text(hour,style: const TextStyle(fontSize: 19,fontWeight: FontWeight.bold)),
                                 ],
                               ),
                             );
                           }
+                          return null;
                       },);
                       },
                     ),

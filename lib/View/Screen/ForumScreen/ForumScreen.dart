@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/Utils/Widget/NavBar.dart';
+import 'package:gradproject2/View/Screen/ForumScreen/components/AddNewPost.dart';
 import 'package:gradproject2/View/Screen/ForumScreen/components/comments.dart';
-import 'package:gradproject2/controller/auth/message_provider.dart';
 import 'package:provider/provider.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/LogoText.dart';
 import '../../../Utils/Widget/drawer.dart';
+import '../../../controller/provider/message_provider.dart';
 
 class ForumScreen extends StatefulWidget {
   const ForumScreen({super.key});
@@ -25,6 +25,7 @@ class _ForumScreenState extends State<ForumScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const LogoText(),
       ),
@@ -38,7 +39,8 @@ class _ForumScreenState extends State<ForumScreen> {
             SizedBox(height: getProportionateScreenHeight(15),),
             InkWell(
                 onTap: (){
-                  Get.toNamed(AppRoute.addnewpost);
+                  showModalBottomSheet(context: context, builder: (context) => const AddNewPost(),);
+                  // Get.toNamed(AppRoute.addnewpost);
                 },
                 child: const Text('+ Add New Post',style: TextStyle(color: Colors.blue),)),
             SizedBox(height: getProportionateScreenHeight(10),),

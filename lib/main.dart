@@ -4,12 +4,14 @@ import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
-import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
-import 'package:gradproject2/controller/auth/comments_provider.dart';
-import 'package:gradproject2/controller/auth/message_provider.dart';
+import 'package:gradproject2/View/Screen/LogInScreen/LoginScreen.dart';
+import 'package:gradproject2/controller/provider/current_weather_provider.dart';
+import 'package:gradproject2/controller/provider/weather_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Controller/auth/report_provider.dart';
+import 'controller/provider/comments_provider.dart';
+import 'controller/provider/message_provider.dart';
+import 'controller/provider/report_provider.dart';
 late SharedPreferences sharedPreferences;
 
 Future<void> main() async {
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
          ChangeNotifierProvider<ReportsProvider>(create: (context) => ReportsProvider(),),
          ChangeNotifierProvider<MessageProvider>(create: (context) => MessageProvider(),),
          ChangeNotifierProvider<CommentsProvider>(create: (context) => CommentsProvider(),),
+         ChangeNotifierProvider<WeatherProvider>(create: (context) => WeatherProvider(),),
+         ChangeNotifierProvider<CurrentWeather>(create: (context) => CurrentWeather(),),
        ],
        child: GetMaterialApp(
          title: 'Flutter Demo',
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
            useMaterial3: true,
          ),
          debugShowCheckedModeBanner: false,
-          home: const HomeScreen(),
+          home: const LoginScreen(),
           routes: route,
          builder: EasyLoading.init(),
        ),

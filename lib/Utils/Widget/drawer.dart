@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/View/Screen/ProfileScreen/ProfileScreen.dart';
-import 'package:gradproject2/View/Screen/weather_screen.dart';
+import 'package:gradproject2/View/Screen/weather_screen/weather_screen.dart';
 import '../Static/SizeConfig.dart';
 import 'drawerElement.dart';
 

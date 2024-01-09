@@ -1,58 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
-import 'package:gradproject2/Utils/Static/StaticColor.dart';
+import 'package:gradproject2/Utils/Widget/CustomButton.dart';
+import 'package:gradproject2/controller/provider/message_provider.dart';
+import 'package:gradproject2/main.dart';
+import 'package:provider/provider.dart';
 
-class AddNewPost extends StatelessWidget {
+class AddNewPost extends StatefulWidget {
   const AddNewPost({super.key});
 
   @override
+  State<AddNewPost> createState() => _AddNewPostState();
+}
+
+class _AddNewPostState extends State<AddNewPost> {
+  TextEditingController desc=TextEditingController();
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Add Post"),
-        actions: [
-          IconButton(onPressed: (){}, icon: const Icon(Icons.send,color: greendark,))
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.only(right: 20,left: 4),
-                height: getProportionateScreenHeight(50),
-                width: getProportionateScreenWidth(50),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(50.0)),
-              ),
-              const Text("Full Name User",style: TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold)),
+    return  Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(right: 20,left: 4),
+                  height: getProportionateScreenHeight(50),
+                  width: getProportionateScreenWidth(50),
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(50.0)),
+                ),
+                Text(sharedPreferences.getString('User_Name').toString(),style: const TextStyle(fontSize: 15 ,fontWeight: FontWeight.bold)),
 
-            ],
-          ),
-          SizedBox(height: getProportionateScreenHeight(20),),
-          const TextField(
-            decoration: InputDecoration(
-              border: UnderlineInputBorder(borderSide: BorderSide.none),
-              hintText: 'Enter your post here',
+              ],
             ),
-            maxLines: 8,
-          ),
-
-          Row(
-            children: [
-              const Icon(Icons.photo_library,color: greenlight),
-              const Text("  Add Photo"),
-              SizedBox(width: getProportionateScreenWidth(30),),
-              const Icon(Icons.location_on_sharp , color: Colors.red),
-              const Text("  Check in"),
-              SizedBox(width: getProportionateScreenWidth(35),),
-              const Icon(Icons.event , color: Colors.red),
-              const Text("Select calendars"),
-            ],
-          ),
-        ],
-      ),
+            SizedBox(height: getProportionateScreenHeight(20),),
+            TextField(
+              controller: desc,
+              decoration: const InputDecoration(
+                border: UnderlineInputBorder(borderSide: BorderSide.none),
+                hintText: 'Enter your post here',
+              ),
+              maxLines: 8,
+            ),
+            const Spacer(),
+            CustomButton(text: 'Add Post', onTap: (){
+              Provider.of<MessageProvider>(context,listen: false).addMessage(desc);
+              Provider.of<MessageProvider>(context,listen: false).fetchMessage();
+              Get.back();
+            })
+          ],
+        ),
     );
   }
 }

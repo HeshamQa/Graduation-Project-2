@@ -4,8 +4,7 @@ import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../controller/auth/comments_provider.dart';
+import '../../../../controller/provider/comments_provider.dart';
 import '../../../../models/message_model.dart';
 
 class Comments extends StatefulWidget {
@@ -122,7 +121,11 @@ class _CommentsState extends State<Comments> {
               SizedBox(
                   width: getProportionateScreenWidth(325),
                   child: TextForm(hint: "comment", label: "Comment", textEditingController: comment, obscure: false)),
-              IconButton(onPressed: (){}, icon: const Icon(
+              IconButton(onPressed: (){
+                Provider.of<CommentsProvider>(context,listen: false).addComments(widget.message.Id, comment);
+                Provider.of<CommentsProvider>(context,listen: false).fetchMessage(widget.message.Id);
+                comment.clear();
+              }, icon: const Icon(
                   color: greendark,
                   Icons.send)),
             ],
