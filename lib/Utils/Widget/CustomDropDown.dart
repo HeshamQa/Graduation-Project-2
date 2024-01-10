@@ -4,10 +4,10 @@ import '../Static/SizeConfig.dart';
 import '../Static/StaticColor.dart';
 
 class CustomDropDown extends StatefulWidget {
-  String selectedValue;
-  List<DropdownMenuItem<String>> menuItems;
-  Function(String?)? func;
-  CustomDropDown({super.key,required this.selectedValue,required this.func,required this.menuItems});
+  final String selectedValue;
+  final List<DropdownMenuItem<String>> menuItems;
+  final Function(String?)? func;
+  const CustomDropDown({super.key,required this.selectedValue,required this.func,required this.menuItems});
 
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
