@@ -19,7 +19,7 @@ class ForgetFields extends StatelessWidget {
             hint: "Enter Your Email",
             label: "Email",
             textEditingController: emailEditingController,
-            obscure: false),
+            obscure: false, enabled: true,),
       ],
     );
   }

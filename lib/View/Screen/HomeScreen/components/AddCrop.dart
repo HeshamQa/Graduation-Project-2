@@ -29,9 +29,9 @@ class AddCrop extends StatelessWidget {
             ///drop down for location
             CustomDropDown(selectedValue: '20', menuItems: menuItems,),
             SizedBox(height: getProportionateScreenHeight(25),),
-            TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false),
+            TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false, enabled: true,),
             SizedBox(height: getProportionateScreenHeight(25),),
-            TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false),
+            TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false,enabled: true),
             SizedBox(height: getProportionateScreenHeight(25),),
             ///drop down for crop
             CustomDropDown(selectedValue: '20', menuItems: menuItems,),

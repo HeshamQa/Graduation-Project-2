@@ -13,12 +13,12 @@ class TextFields extends StatelessWidget {
       children: [
         TextForm(
           hint: 'Enter your Email',
-          label: 'Email', textEditingController: emailEditingController, obscure: false,
+          label: 'Email', textEditingController: emailEditingController, obscure: false, enabled: true,
         ),
         SizedBox(height: getProportionateScreenHeight(30)),
         TextForm(
           hint: 'Enter your Password',
-          label: 'Password', textEditingController: passwordEditingController, obscure: true,
+          label: 'Password', textEditingController: passwordEditingController, obscure: true, enabled: true,
         ),
       ],
     );

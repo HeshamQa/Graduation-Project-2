@@ -120,7 +120,7 @@ class _CommentsState extends State<Comments> {
             children: [
               SizedBox(
                   width: getProportionateScreenWidth(325),
-                  child: TextForm(hint: "comment", label: "Comment", textEditingController: comment, obscure: false)),
+                  child: TextForm(hint: "comment", label: "Comment", textEditingController: comment, obscure: false, enabled: true,)),
               IconButton(onPressed: (){
                 Provider.of<CommentsProvider>(context,listen: false).addComments(widget.message.Id, comment);
                 Provider.of<CommentsProvider>(context,listen: false).fetchMessage(widget.message.Id);
