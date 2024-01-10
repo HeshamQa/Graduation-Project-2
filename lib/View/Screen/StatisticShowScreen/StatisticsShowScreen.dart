@@ -9,7 +9,8 @@ import '../../../models/dropdown_model.dart';
 import 'components/ShowContainer.dart';
 
 class StatisticsShowScreen extends StatelessWidget {
-  const StatisticsShowScreen({super.key});
+  final String year,crop,city;
+  const StatisticsShowScreen({super.key, required this.year, required this.crop, required this.city});
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +22,13 @@ class StatisticsShowScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(10),vertical: getProportionateScreenHeight(25)),
         child: Column(
           children: [
-            const ShowContainer(),
+            ShowContainer(year: year, crop: crop, city: city,),
             SizedBox(height: getProportionateScreenHeight(50)),
-            CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item),
+            CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item, func: (String? s) {  },),
             SizedBox(height: getProportionateScreenHeight(25)),
-            CustomDropDown(selectedValue: dropdownlist[1].value,menuItems: dropdownlist[1].item),
+            CustomDropDown(selectedValue: dropdownlist[1].value,menuItems: dropdownlist[1].item, func: (String? s) {  },),
             SizedBox(height: getProportionateScreenHeight(25)),
-            CustomDropDown(selectedValue: dropdownlist[2].value,menuItems: dropdownlist[2].item),
+            CustomDropDown(selectedValue: dropdownlist[2].value,menuItems: dropdownlist[2].item, func: (String? s) {  },),
             SizedBox(height: getProportionateScreenHeight(15)),
             const CustomRadioButton(),
             const Spacer(),

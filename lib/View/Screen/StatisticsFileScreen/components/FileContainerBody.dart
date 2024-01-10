@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 import 'FileDetailes.dart';
 
 class FileContainerBody extends StatelessWidget {
+  final String year,crop,city;
   const FileContainerBody({
-    super.key,
+    super.key, required this.year, required this.crop, required this.city,
   });
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        FileDetails(textType: 'Crop Type : ', textDet: 'Tomato',),
-        Divider(),
-        FileDetails(textType: 'Year : ', textDet: '2002'),
-        Divider(),
-        FileDetails(textType: 'City Name : ', textDet: 'Irbid'),
+        FileDetails(textType: 'Crop Type : ', textDet: crop,),
+        const Divider(),
+        FileDetails(textType: 'Year : ', textDet: year),
+        const Divider(),
+        FileDetails(textType: 'City Name : ', textDet: city),
       ],
     );
   }

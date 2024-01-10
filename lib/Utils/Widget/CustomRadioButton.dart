@@ -6,16 +6,14 @@ class CustomRadioButton extends StatefulWidget {
   @override
   State<CustomRadioButton> createState() => _CustomRadioButtonState();
 }
-
+String? gender="Summer";
 class _CustomRadioButtonState extends State<CustomRadioButton> {
-  String? gender;
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         RadioListTile(
-          title: Text("Summer"),
+          title: const Text("Summer"),
           value: "Summer",
           groupValue: gender,
           onChanged: (value) {
@@ -25,7 +23,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           },
         ),
         RadioListTile(
-          title: Text("Winter"),
+          title: const Text("Winter"),
           value: "Winter",
           groupValue: gender,
           onChanged: (value) {

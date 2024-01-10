@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: const NavBar(id: 'Home'),
       body: Column(
         children: [
-          CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item,),
+          CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item, func: (String? s) {  },),
           SizedBox(height: getProportionateScreenHeight(25),),
           const Expanded(child: GoogleMapWidget()),
         ],

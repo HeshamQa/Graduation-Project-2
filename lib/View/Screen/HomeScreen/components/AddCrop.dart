@@ -27,14 +27,14 @@ class AddCrop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ///drop down for location
-            CustomDropDown(selectedValue: '20', menuItems: menuItems,),
+            CustomDropDown(selectedValue: '20', menuItems: menuItems, func: (String? s) {  },),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false, enabled: true,),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false,enabled: true),
             SizedBox(height: getProportionateScreenHeight(25),),
             ///drop down for crop
-            CustomDropDown(selectedValue: '20', menuItems: menuItems,),
+            CustomDropDown(selectedValue: '20', menuItems: menuItems,func: (String? s) {  },),
             const Spacer(),
             CustomButton(text: 'Save', onTap: (){})
           ],

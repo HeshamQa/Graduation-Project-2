@@ -6,6 +6,7 @@ import 'package:gradproject2/Utils/Static/StaticColor.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/View/Screen/LogInScreen/LoginScreen.dart';
 import 'package:gradproject2/controller/provider/current_weather_provider.dart';
+import 'package:gradproject2/controller/provider/statistics_provider.dart';
 import 'package:gradproject2/controller/provider/weather_controller.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
          ChangeNotifierProvider<CommentsProvider>(create: (context) => CommentsProvider(),),
          ChangeNotifierProvider<WeatherProvider>(create: (context) => WeatherProvider(),),
          ChangeNotifierProvider<CurrentWeather>(create: (context) => CurrentWeather(),),
+         ChangeNotifierProvider<StatisticsProvider>(create: (context) => StatisticsProvider(),),
        ],
        child: GetMaterialApp(
          title: 'Flutter Demo',

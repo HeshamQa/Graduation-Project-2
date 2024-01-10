@@ -6,7 +6,8 @@ import '../Static/StaticColor.dart';
 class CustomDropDown extends StatefulWidget {
   String selectedValue;
   List<DropdownMenuItem<String>> menuItems;
-  CustomDropDown({super.key,required this.selectedValue,required this.menuItems});
+  Function(String?)? func;
+  CustomDropDown({super.key,required this.selectedValue,required this.func,required this.menuItems});
 
   @override
   State<CustomDropDown> createState() => _CustomDropDownState();
@@ -32,12 +33,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
         value: widget.selectedValue,
         padding: EdgeInsets.symmetric(
             horizontal: getProportionateScreenWidth(10)),
-        onChanged: (String? newValue) {
-          setState(() {
-            widget.selectedValue = newValue!;
-            ss = newValue;
-          });
-        },
+        onChanged: widget.func,
         items: widget.menuItems,
       ),
     );

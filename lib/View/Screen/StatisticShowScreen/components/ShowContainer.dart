@@ -5,8 +5,9 @@ import '../../../../Utils/Static/StaticColor.dart';
 import 'ShowContainerBody.dart';
 
 class ShowContainer extends StatelessWidget {
+  final String year,crop,city;
   const ShowContainer({
-    super.key,
+    super.key, required this.year, required this.crop, required this.city,
   });
 
   @override
@@ -20,7 +21,7 @@ class ShowContainer extends StatelessWidget {
         border: Border.all(color: greenlight),
         borderRadius: BorderRadius.circular(15),
       ),
-      child: const ShowContainerBody(),
+      child: ShowContainerBody(year: year, crop: crop, city: city,),
     );
   }
 }

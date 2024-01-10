@@ -47,7 +47,7 @@ class _CropsScreenState extends State<CropsScreen> {
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: getProportionateScreenHeight(15)),
-                CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item),
+                CustomDropDown(selectedValue: dropdownlist[0].value,menuItems: dropdownlist[0].item, func: (String? s) {  },),
                 const CustomRadioButton(),
                 CustomButton(text: 'Show', onTap: () {}),
                 SizedBox(height: getProportionateScreenHeight(10),),
