@@ -77,8 +77,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         itemCount: value.weatherlist.list!.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          var date=value.weatherlist.list![index].dtTxt!.substring(9,10);
-                          if(DateTime.now().day.toString()==date) {
                             String hour = value.weatherlist.list![index].dtTxt!
                                 .substring(10, 16);
                             var temp1 = value.weatherlist.list![index].main!
@@ -98,8 +96,6 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                 ],
                               ),
                             );
-                          }
-                          return null;
                       },);
                       },
                     ),
