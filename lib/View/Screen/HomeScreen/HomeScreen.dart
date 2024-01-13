@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
+import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
 import 'package:gradproject2/Utils/Widget/GoogleMap.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
@@ -44,8 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: const NavBar(id: 'Home'),
       body: Column(
         children: [
-          CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item, func: (String? s) {  },),
+          CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item, func: (String? s) {
+            setState(() {
+              dropdownlist[2].value=s.toString();
+            });
+          },),
           SizedBox(height: getProportionateScreenHeight(25),),
+          CustomButton(text: 'Show', onTap: (){}),
+          SizedBox(height: getProportionateScreenHeight(10),),
           const Expanded(child: GoogleMapWidget()),
         ],
       ),

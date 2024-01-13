@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gradproject2/View/Screen/StatisticShowScreen/StatisticsShowScreen.dart';
 import 'package:gradproject2/View/Screen/StatisticsFileScreen/StatisticsFileScreen.dart';
 import '../../../../Utils/Static/SizeConfig.dart';
@@ -63,13 +62,13 @@ class _StatisticsBodyState extends State<StatisticsBody> {
           const CustomRadioButton(),
           SizedBox(height: getProportionateScreenHeight(15),),
           CustomButton(text: "Show", onTap: () {
-            Get.to(StatisticsShowScreen(year: year, crop: crop, city: city,));
+           showModalBottomSheet(context: context, builder: (context) => StatisticsShowScreen(year: year, crop: crop, city: city,));
           },),
           SizedBox(height: getProportionateScreenHeight(40),),
           const Text("If You want More details click here",style: TextStyle(fontSize: 15)),
           SizedBox(height: getProportionateScreenHeight(8),),
           CustomButton(text: "Files", onTap: () {
-            Get.to(StatisticsFileScreen(year: year, crop: crop, city: city,));
+            showModalBottomSheet(context: context, builder: (context) => StatisticsFileScreen(year: year, crop: crop, city: city,));
           },),
         ],
       ),

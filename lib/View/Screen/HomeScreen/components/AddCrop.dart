@@ -3,20 +3,18 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
+import 'package:gradproject2/models/dropdown_model.dart';
 
-class AddCrop extends StatelessWidget {
+class AddCrop extends StatefulWidget {
   const AddCrop({super.key});
 
   @override
+  State<AddCrop> createState() => _AddCropState();
+}
+
+class _AddCropState extends State<AddCrop> {
+  @override
   Widget build(BuildContext context) {
-    List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(value: "22", child: Text("2022")),
-      const DropdownMenuItem(value: "21", child: Text("2021")),
-      const DropdownMenuItem(value: "20", child: Text("2020")),
-      const DropdownMenuItem(value: "19", child: Text("2019")),
-      const DropdownMenuItem(value: "18", child: Text("2018")),
-      const DropdownMenuItem(value: "17", child: Text("2017")),
-    ];
     return Scaffold(
       appBar: AppBar(
         title: const Text("Add New Crops"),
@@ -27,14 +25,22 @@ class AddCrop extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ///drop down for location
-            CustomDropDown(selectedValue: '20', menuItems: menuItems, func: (String? s) {  },),
+            CustomDropDown(selectedValue: dropdownlist[1].value, menuItems: dropdownlist[1].item, func: (String? s) {
+              setState(() {
+                dropdownlist[1].value=s.toString();
+              });
+            },),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false, enabled: true,),
             SizedBox(height: getProportionateScreenHeight(25),),
             TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false,enabled: true),
             SizedBox(height: getProportionateScreenHeight(25),),
             ///drop down for crop
-            CustomDropDown(selectedValue: '20', menuItems: menuItems,func: (String? s) {  },),
+            CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item,func: (String? s) {
+              setState(() {
+                dropdownlist[2].value=s.toString();
+              });
+            },),
             const Spacer(),
             CustomButton(text: 'Save', onTap: (){})
           ],
