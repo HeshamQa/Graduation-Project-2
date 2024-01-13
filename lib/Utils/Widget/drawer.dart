@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/View/Screen/ProfileScreen/ProfileScreen.dart';
 import 'package:gradproject2/View/Screen/weather_screen/weather_screen.dart';
+import 'package:gradproject2/main.dart';
 import '../Static/SizeConfig.dart';
 import 'drawerElement.dart';
 
@@ -41,7 +43,14 @@ class CustomDrawer extends StatelessWidget {
           const Spacer(),
           DrawerElements(
             icon: Icons.logout_outlined,
-            text: "Logout", ontap: (){},
+            text: "Logout", ontap: (){
+            sharedPreferences.remove("Id");
+            sharedPreferences.remove("Email");
+            sharedPreferences.remove("User_Name");
+            sharedPreferences.remove("Password");
+            sharedPreferences.remove("Id_UserType");
+            Get.offAllNamed(AppRoute.login);
+          },
           ),
 
         ],
