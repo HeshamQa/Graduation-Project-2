@@ -34,7 +34,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            CustomDropDown(selectedValue: dropdownlist[1].value, menuItems: dropdownlist[1].item, func: (String? s) {  },),
+            CustomDropDown(selectedValue: dropdownlist[1].value, menuItems: dropdownlist[1].item, func: (String? s) {
+              setState(() {
+                dropdownlist[1].value=s.toString();
+              });
+            },),
             SizedBox(height: getProportionateScreenHeight(25)),
             CustomButton(text: "show", onTap: (){
               getWeather();
