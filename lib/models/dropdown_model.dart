@@ -21,6 +21,7 @@ List<DropDownModel> dropdownlist=[
     const DropdownMenuItem(value: "Mafraq", child: Text("Mafraq")),
     const DropdownMenuItem(value: "Aqaba", child: Text("Aqaba")),
     const DropdownMenuItem(value: "Madaba", child: Text("Madaba")),
+    const DropdownMenuItem(value: "Ma'an", child: Text("Ma'an")),
   ]),
   DropDownModel(value: 'Tomato', item: [
     const DropdownMenuItem(value: "Tomato", child: Text("Tomato")),

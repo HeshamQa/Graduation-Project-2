@@ -8,7 +8,8 @@ const String linkAddComment = "$linkServerName/Home/addcomment.php";
 const String linkAddMessage = "$linkServerName/Home/addmessage.php";
 const String linkGetStatistics = "$linkServerName/Home/viewstatistics.php";
 const String linkGetStatistics2 = "$linkServerName/Home/viewstatistics2.php";
-
+const String linkAddCrops = "$linkServerName/Home/addcrops.php";
+const String linkGetCrops = "$linkServerName/Home/viewcrops.php";
 
 
 

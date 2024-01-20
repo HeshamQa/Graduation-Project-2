@@ -14,6 +14,7 @@ import 'package:gradproject2/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'controller/provider/comments_provider.dart';
+import 'controller/provider/crops_provider.dart';
 import 'controller/provider/message_provider.dart';
 import 'controller/provider/report_provider.dart';
 
@@ -50,6 +51,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<StatisticsProvider>(
           create: (context) => StatisticsProvider(),
+        ),
+        ChangeNotifierProvider<CropsProvider>(
+          create: (context) => CropsProvider(),
         ),
       ],
       child: GetMaterialApp(

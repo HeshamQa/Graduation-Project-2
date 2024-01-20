@@ -3,10 +3,9 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 
 class ShowDetails extends StatelessWidget {
   final String textType;
-  final String textDet;
   final String txt;
   const ShowDetails({
-    super.key, required this.textType, required this.textDet, required this.txt,
+    super.key, required this.textType, required this.txt,
   });
 
   @override
@@ -14,7 +13,7 @@ class ShowDetails extends StatelessWidget {
     return Row(
       children: [
         SizedBox(
-          width: getProportionateScreenWidth(100),
+          width: getProportionateScreenWidth(150),
           child: Text(
             textType,
             style: const TextStyle(
@@ -23,16 +22,7 @@ class ShowDetails extends StatelessWidget {
         ),
         const Spacer(),
         SizedBox(
-          width: getProportionateScreenWidth(100),
-          child: Text(
-            textDet,
-            style: const TextStyle(
-                fontWeight: FontWeight.w600, fontSize: 18),
-          ),
-        ),
-        const Spacer(),
-        SizedBox(
-          width: getProportionateScreenWidth(100),
+          width: getProportionateScreenWidth(150),
           child: Text(
             txt,
             style: const TextStyle(

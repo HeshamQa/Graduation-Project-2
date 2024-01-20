@@ -1,15 +1,21 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
+import 'package:gradproject2/Utils/Static/route.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
+import 'package:gradproject2/Utils/Widget/CustomRadioButton.dart';
 import 'package:gradproject2/Utils/Widget/GoogleMap.dart';
 import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/drawer.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/components/AddCrop.dart';
 import 'package:gradproject2/models/dropdown_model.dart';
+import 'package:provider/provider.dart';
 import '../../../Utils/Widget/NavBar.dart';
+import '../../../controller/provider/crops_provider.dart';
 import '../../../generated/l10n.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,14 +26,26 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<DropdownMenuItem<String>> menuItems = [
-    const DropdownMenuItem(value: "22", child: Text("2022")),
-    const DropdownMenuItem(value: "21", child: Text("2021")),
-    const DropdownMenuItem(value: "20", child: Text("2020")),
-    const DropdownMenuItem(value: "19", child: Text("2019")),
-    const DropdownMenuItem(value: "18", child: Text("2018")),
-    const DropdownMenuItem(value: "17", child: Text("2017")),
-  ];
+  Future<void> getCrops() async {
+    amman = await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Amman", gender!, dropdownlist[2].value);
+    irbid =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Irbid", gender!, dropdownlist[2].value);
+    mafraq =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Mafraq", gender!, dropdownlist[2].value);
+    maan = await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Ma'an", gender!, dropdownlist[2].value);
+    zarqa =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Zarqa", gender!, dropdownlist[2].value);
+    karak =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Karak", gender!, dropdownlist[2].value);
+    madaba =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Madaba", gender!, dropdownlist[2].value);
+    aqaba =await Provider.of<CropsProvider>(context, listen: false)
+        .fetchCrops("Aqaba", gender!, dropdownlist[2].value);
+    setState(() {
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,8 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
               dropdownlist[2].value=s.toString();
             });
           },),
-          SizedBox(height: getProportionateScreenHeight(25),),
-          CustomButton(text: S.of(context).Show, onTap: (){}),
+          const CustomRadioButton(),
+          CustomButton(text: S.of(context).Show, onTap: (){
+            getCrops();
+            Get.offAllNamed(AppRoute.home);
+          }),
           SizedBox(height: getProportionateScreenHeight(10),),
           const Expanded(child: GoogleMapWidget()),
         ],
