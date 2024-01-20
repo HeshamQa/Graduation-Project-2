@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/CustomButton.dart';
 import '../../../Utils/Widget/CustomRadioButton.dart';
+import '../../../generated/l10n.dart';
 
 class StatisticsFileScreen extends StatefulWidget {
   final String year, crop, city;
@@ -43,7 +44,7 @@ class _StatisticsFileScreenState extends State<StatisticsFileScreen> {
                   builder: (BuildContext context, StatisticsProvider value,
                           Widget? child) =>
                       CustomButton(
-                          text: 'Download File',
+                          text: S.of(context).DownloadFile,
                           onTap: () async {
                             // url = Uri.parse(value.statistic2[0].Url);
                             // if (await canLaunchUrl(url)) {
@@ -52,7 +53,7 @@ class _StatisticsFileScreenState extends State<StatisticsFileScreen> {
                             print(value.statistic2[0].Url);
                           })),
               const Spacer(),
-              CustomButton(text: 'Back', onTap: () {Get.back();}),
+              CustomButton(text: S.of(context).Back, onTap: () {Get.back();}),
             ],
           ),
     );

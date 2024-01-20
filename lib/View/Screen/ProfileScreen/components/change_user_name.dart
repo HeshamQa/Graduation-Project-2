@@ -3,6 +3,8 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
 
+import '../../../../generated/l10n.dart';
+
 class ChangeUserName extends StatefulWidget {
   const ChangeUserName({super.key});
 
@@ -20,9 +22,9 @@ class _ChangeUserNameState extends State<ChangeUserName> {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            TextForm(hint: 'Enter New User Name', label: 'User Name', textEditingController: userName, obscure: false, enabled: true,),
+            TextForm(hint: S.of(context).EnterNewUserName, label: S.of(context).UserName, textEditingController: userName, obscure: false, enabled: true,),
             const Spacer(),
-            CustomButton(text: "Save", onTap: (){}),
+            CustomButton(text: S.of(context).Save, onTap: (){}),
           ],
         ),
       ),

@@ -6,6 +6,8 @@ import 'package:gradproject2/controller/provider/message_provider.dart';
 import 'package:gradproject2/main.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../generated/l10n.dart';
+
 class AddNewPost extends StatefulWidget {
   const AddNewPost({super.key});
 
@@ -38,14 +40,14 @@ class _AddNewPostState extends State<AddNewPost> {
             SizedBox(height: getProportionateScreenHeight(20),),
             TextField(
               controller: desc,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: UnderlineInputBorder(borderSide: BorderSide.none),
-                hintText: 'Enter your post here',
+                hintText: S.of(context).Enteryourposthere,
               ),
               maxLines: 8,
             ),
             const Spacer(),
-            CustomButton(text: 'Add Post', onTap: (){
+            CustomButton(text: S.of(context).AddPost, onTap: (){
               Provider.of<MessageProvider>(context,listen: false).addMessage(desc);
               Provider.of<MessageProvider>(context,listen: false).fetchMessage();
               Get.back();

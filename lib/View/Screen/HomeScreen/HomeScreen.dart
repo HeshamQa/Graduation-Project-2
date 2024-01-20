@@ -10,6 +10,7 @@ import 'package:gradproject2/Utils/Widget/drawer.dart';
 import 'package:gradproject2/View/Screen/HomeScreen/components/AddCrop.dart';
 import 'package:gradproject2/models/dropdown_model.dart';
 import '../../../Utils/Widget/NavBar.dart';
+import '../../../generated/l10n.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },),
           SizedBox(height: getProportionateScreenHeight(25),),
-          CustomButton(text: 'Show', onTap: (){}),
+          CustomButton(text: S.of(context).Show, onTap: (){}),
           SizedBox(height: getProportionateScreenHeight(10),),
           const Expanded(child: GoogleMapWidget()),
         ],

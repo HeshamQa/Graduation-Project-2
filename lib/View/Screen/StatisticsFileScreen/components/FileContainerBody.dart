@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../generated/l10n.dart';
 import 'FileDetailes.dart';
 
 class FileContainerBody extends StatelessWidget {
@@ -12,11 +13,11 @@ class FileContainerBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        FileDetails(textType: 'Crop Type : ', textDet: crop,),
+        FileDetails(textType: '${S.of(context).CropType} : ', textDet: crop,),
         const Divider(),
-        FileDetails(textType: 'Year : ', textDet: year),
+        FileDetails(textType: '${S.of(context).Year} : ', textDet: year),
         const Divider(),
-        FileDetails(textType: 'City Name : ', textDet: city),
+        FileDetails(textType: '${S.of(context).CityName} : ', textDet: city),
       ],
     );
   }

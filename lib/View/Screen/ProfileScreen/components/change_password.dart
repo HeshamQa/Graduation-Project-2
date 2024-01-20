@@ -3,6 +3,8 @@ import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
 
+import '../../../../generated/l10n.dart';
+
 class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
 
@@ -22,11 +24,11 @@ class _ChangePasswordState extends State<ChangePassword> {
         padding: const EdgeInsets.all(20.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            TextForm(hint: 'Enter Current Password', label: 'Current Password', textEditingController: current, obscure: true, enabled: true,),
-            TextForm(hint: 'Enter New Password', label: 'New Password', textEditingController: current, obscure: true, enabled: true,),
-            TextForm(hint: 'Enter Confirm New Password', label: 'Confirm New Password', textEditingController: current, obscure: true, enabled: true,),
+            TextForm(hint: S.of(context).EnterCurrentPassword, label: S.of(context).CurrentPassword, textEditingController: current, obscure: true, enabled: true,),
+            TextForm(hint: S.of(context).EnterNewPassword, label: S.of(context).NewPassword, textEditingController: current, obscure: true, enabled: true,),
+            TextForm(hint: S.of(context).EnterConfirmNewPassword, label: S.of(context).ConfirmNewPassword, textEditingController: current, obscure: true, enabled: true,),
             // const Spacer(),
-            CustomButton(text: "Save", onTap: (){}),
+            CustomButton(text: S.of(context).Save, onTap: (){}),
           ],
         ),
       ),

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/route.dart';
 
 import '../../../../Utils/Static/StaticColor.dart';
+import '../../../../generated/l10n.dart';
 
 class SignUpButton extends StatelessWidget {
   const SignUpButton({super.key});
@@ -11,17 +12,17 @@ class SignUpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(
-          "Don't Have An Account? ",
-          style: TextStyle(color: grey, fontSize: 16),
+        Text(
+          "${S.of(context).ForgetPassword}? ",
+          style: const TextStyle(color: grey, fontSize: 16),
         ),
         InkWell(
             onTap: () {
               Get.toNamed(AppRoute.signup);
             },
-            child: const Text(
-              "SignUp ",
-              style: TextStyle(color: greendark, fontSize: 16),
+            child: Text(
+              S.of(context).SignUp,
+              style: const TextStyle(color: greendark, fontSize: 16),
             )),
       ],
     );

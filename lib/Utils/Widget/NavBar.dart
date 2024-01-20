@@ -6,6 +6,7 @@ import 'package:gradproject2/View/Screen/ForumScreen/ForumScreen.dart';
 import 'package:gradproject2/View/Screen/ReportScreen/report_screen.dart';
 import 'package:gradproject2/View/Screen/StatisticsScreen/StatisticsScreen.dart';
 import 'package:pandabar/pandabar.dart';
+import '../../generated/l10n.dart';
 import '../Static/StaticColor.dart';
 
 class NavBar extends StatefulWidget {
@@ -24,22 +25,22 @@ class _NavBarState extends State<NavBar> {
         PandaBarButtonData(
             id: 'Crops',
             icon: Icons.dashboard,
-            title: 'Crops'
+            title: S.of(context).Crops
         ),
         PandaBarButtonData(
             id: 'Statistics',
             icon: Icons.add_chart_outlined,
-            title: 'Statistics'
+            title: S.of(context).Statistics
         ),
         PandaBarButtonData(
             id: 'Messages',
             icon: Icons.message_outlined,
-            title: 'Messages'
+            title: S.of(context).Messages
         ),
         PandaBarButtonData(
             id: 'Report',
             icon: Icons.add_chart_outlined,
-            title: 'Report'
+            title: S.of(context).Report
         ),
       ],
       backgroundColor: white,
@@ -53,16 +54,16 @@ class _NavBarState extends State<NavBar> {
       onChange: (id) {
         setState(() {
           if(id=='Statistics'){
-            Get.to(() => StatisticsScreen());
+            Get.to(() => const StatisticsScreen());
           }
           else if(id=='Report'){
-            Get.to(() =>ReportScreen());
+            Get.to(() =>const ReportScreen());
           }
           else if(id=='Messages'){
-            Get.to(() =>ForumScreen());
+            Get.to(() =>const ForumScreen());
           }
           else if(id=='Crops'){
-            Get.to(() =>CropsScreen());
+            Get.to(() =>const CropsScreen());
           }
         });
       },

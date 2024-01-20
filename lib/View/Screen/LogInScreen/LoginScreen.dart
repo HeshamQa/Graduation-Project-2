@@ -4,6 +4,7 @@ import 'package:gradproject2/Utils/Widget/BackGround.dart';
 import '../../../Utils/Widget/CustomButton.dart';
 import '../../../Utils/Widget/LogoText.dart';
 import '../../../controller/auth/login_controller.dart';
+import '../../../generated/l10n.dart';
 import 'components/Remember&Forget.dart';
 import 'components/SignUpButton.dart';
 import 'components/TextFields.dart';
@@ -38,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: getProportionateScreenHeight(15)),
                 const RememberForget(),
                 SizedBox(height: getProportionateScreenHeight(50)),
-                CustomButton(text: 'LogIn', onTap: () {
+                CustomButton(text: S.of(context).LogIn, onTap: () {
                   logIn(context,emailEditingController,passwordEditingController);
                   },),
                 SizedBox(height: getProportionateScreenHeight(25)),

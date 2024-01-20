@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class CustomRadioButton extends StatefulWidget {
   const CustomRadioButton({super.key});
 
@@ -13,7 +15,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
     return Column(
       children: [
         RadioListTile(
-          title: const Text("Summer"),
+          title: Text(S.of(context).Summer),
           value: "Summer",
           groupValue: gender,
           onChanged: (value) {
@@ -23,7 +25,7 @@ class _CustomRadioButtonState extends State<CustomRadioButton> {
           },
         ),
         RadioListTile(
-          title: const Text("Winter"),
+          title: Text(S.of(context).Winter),
           value: "Winter",
           groupValue: gender,
           onChanged: (value) {

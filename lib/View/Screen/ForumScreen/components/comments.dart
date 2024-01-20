@@ -5,6 +5,7 @@ import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
 import 'package:provider/provider.dart';
 import '../../../../controller/provider/comments_provider.dart';
+import '../../../../generated/l10n.dart';
 import '../../../../models/message_model.dart';
 
 class Comments extends StatefulWidget {
@@ -41,7 +42,6 @@ class _CommentsState extends State<Comments> {
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(bottom: BorderSide(color: Colors.grey))
-              // boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 5)],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,7 +120,7 @@ class _CommentsState extends State<Comments> {
             children: [
               SizedBox(
                   width: getProportionateScreenWidth(325),
-                  child: TextForm(hint: "comment", label: "Comment", textEditingController: comment, obscure: false, enabled: true,)),
+                  child: TextForm(hint: S.of(context).Comment, label: "Comment", textEditingController: comment, obscure: false, enabled: true,)),
               IconButton(onPressed: (){
                 Provider.of<CommentsProvider>(context,listen: false).addComments(widget.message.Id, comment);
                 Provider.of<CommentsProvider>(context,listen: false).fetchMessage(widget.message.Id);

@@ -59,7 +59,10 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: S.delegate.supportedLocales,
+        supportedLocales: const [
+          Locale('en', ''), // English
+          Locale('ar', ''), // Arabic
+        ],
         locale: const Locale('ar'),
         title: 'Flutter Demo',
         theme: ThemeData(

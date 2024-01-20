@@ -5,6 +5,8 @@ import 'package:gradproject2/Utils/Widget/CustomDropDown.dart';
 import 'package:gradproject2/Utils/Widget/TextForm.dart';
 import 'package:gradproject2/models/dropdown_model.dart';
 
+import '../../../../generated/l10n.dart';
+
 class AddCrop extends StatefulWidget {
   const AddCrop({super.key});
 
@@ -17,7 +19,7 @@ class _AddCropState extends State<AddCrop> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add New Crops"),
+        title: Text(S.of(context).AddNewCrops),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical:getProportionateScreenHeight(20),horizontal: getProportionateScreenWidth(10)),
@@ -31,9 +33,7 @@ class _AddCropState extends State<AddCrop> {
               });
             },),
             SizedBox(height: getProportionateScreenHeight(25),),
-            TextForm(hint: 'Enter land height', label: 'height', textEditingController: TextEditingController(), obscure: false, enabled: true,),
-            SizedBox(height: getProportionateScreenHeight(25),),
-            TextForm(hint: 'Enter land width', label: 'width', textEditingController: TextEditingController(), obscure: false,enabled: true),
+            TextForm(hint: S.of(context).EnterlandAreainDUNUM, label: S.of(context).AreaDunums, textEditingController: TextEditingController(), obscure: false,enabled: true),
             SizedBox(height: getProportionateScreenHeight(25),),
             ///drop down for crop
             CustomDropDown(selectedValue: dropdownlist[2].value, menuItems: dropdownlist[2].item,func: (String? s) {
@@ -42,7 +42,7 @@ class _AddCropState extends State<AddCrop> {
               });
             },),
             const Spacer(),
-            CustomButton(text: 'Save', onTap: (){})
+            CustomButton(text: S.of(context).Save, onTap: (){})
           ],
         ),
       ),

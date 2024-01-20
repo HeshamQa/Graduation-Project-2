@@ -3,6 +3,7 @@ import 'package:gradproject2/Utils/Widget/CustomRadioButton.dart';
 import 'package:gradproject2/controller/provider/statistics_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../generated/l10n.dart';
 import 'ShowDetailes.dart';
 
 class ShowContainerBody extends StatefulWidget {
@@ -26,15 +27,15 @@ class _ShowContainerBodyState extends State<ShowContainerBody> {
     return Consumer<StatisticsProvider>(
       builder: (BuildContext context, StatisticsProvider value, Widget? child) => Column(
         children: [
-          ShowDetails(textType: 'Crop : ', textDet: widget.crop,),
+          ShowDetails(textType: '${S.of(context).Crops} : ', textDet: widget.crop,),
           const Divider(),
-          ShowDetails(textType: 'Year : ', textDet: widget.year),
+          ShowDetails(textType: '${S.of(context).Year} : ', textDet: widget.year),
           const Divider(),
-          ShowDetails(textType: 'City Name : ', textDet: widget.city),
+          ShowDetails(textType: '${S.of(context).CityName} : ', textDet: widget.city),
           const Divider(),
-          ShowDetails(textType: 'Cultivated Area : ', textDet: value.statistic[0].Space),
+          ShowDetails(textType: '${S.of(context).CultivatedArea} : ', textDet: value.statistic[0].Space),
           const Divider(),
-          ShowDetails(textType: 'Total Production : ', textDet: value.statistic[0].Production)
+          ShowDetails(textType: '${S.of(context).TotalProduction} : ', textDet: value.statistic[0].Production)
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:gradproject2/View/Screen/ProfileScreen/components/change_user_na
 import 'package:gradproject2/main.dart';
 import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../Utils/Widget/TextForm.dart';
+import '../../../../generated/l10n.dart';
 
 class TextForms extends StatelessWidget {
   const TextForms({super.key});
@@ -15,39 +16,38 @@ class TextForms extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextForm(
-            hint: 'Enter Your Name',
-            label: 'Name',
+            hint: S.of(context).EnterYourName,
+            label: S.of(context).Name,
             textEditingController:
                 TextEditingController(text: sharedPreferences.getString("User_Name")),
             obscure: false, enabled: false,),
         SizedBox(height: getProportionateScreenHeight(5),),
         InkWell(onTap: () {
           showModalBottomSheet(context: context, builder: (context) => const ChangeUserName(),);
-        }, child: const Text('Change')),
+        }, child: Text(S.of(context).Change)),
         SizedBox(height: getProportionateScreenHeight(20)),
         TextForm(
-            hint: 'Enter Your Email',
-            label: 'Email',
+            hint: S.of(context).EnterYourEmail,
+            label: S.of(context).Email,
             textEditingController:
                 TextEditingController(text: sharedPreferences.getString("Email")),
             obscure: false, enabled: false,),
         SizedBox(height: getProportionateScreenHeight(5),),
         InkWell(onTap: () {
           showModalBottomSheet(context: context, builder: (context) => const ChangeModal());
-        }, child: const Text('Change')),
+        }, child: Text(S.of(context).Change)),
         SizedBox(height: getProportionateScreenHeight(20)),
         TextForm(
-          hint: 'Enter Your Password',
-          label: 'Password',
+          hint: S.of(context).EnteryourPassword,
+          label: S.of(context).Password,
           textEditingController:
           TextEditingController(text: sharedPreferences.getString("Email")),
           obscure: true, enabled: false,),
         SizedBox(height: getProportionateScreenHeight(5),),
         InkWell(onTap: () {
           showModalBottomSheet(context: context, builder: (context) => const ChangePassword());
-        }, child: const Text('Change')),
+        }, child: Text(S.of(context).Change)),
         SizedBox(height: getProportionateScreenHeight(20)),
-
       ],
     );
   }

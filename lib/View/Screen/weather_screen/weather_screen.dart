@@ -7,6 +7,8 @@ import 'package:gradproject2/controller/provider/weather_controller.dart';
 import 'package:gradproject2/models/dropdown_model.dart';
 import 'package:provider/provider.dart';
 
+import '../../../generated/l10n.dart';
+
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
 
@@ -28,7 +30,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Weather'),
+        title: Text(S.of(context).Weather),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -40,7 +42,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
               });
             },),
             SizedBox(height: getProportionateScreenHeight(25)),
-            CustomButton(text: "show", onTap: (){
+            CustomButton(text: S.of(context).Show, onTap: (){
               getWeather();
             }),
             SizedBox(height: getProportionateScreenHeight(25),),
@@ -60,9 +62,9 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     builder: (BuildContext context, CurrentWeather value, Widget? child) => Row(
                       children: [
                         const SizedBox(width: 10,),
-                        Text('Date : ${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+                        Text('${S.of(context).Date} : ${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
                         const Spacer(),
-                        Text('Temp : ${value.currentList.main!.temp!.toInt()}°C',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
+                        Text('${S.of(context).Temp} : ${value.currentList.main!.temp!.toInt()}°C',style: const TextStyle(fontSize: 17,fontWeight: FontWeight.bold)),
                         const SizedBox(width: 10,),
                       ],
                     ),

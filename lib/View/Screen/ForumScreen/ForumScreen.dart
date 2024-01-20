@@ -8,6 +8,7 @@ import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/LogoText.dart';
 import '../../../Utils/Widget/drawer.dart';
 import '../../../controller/provider/message_provider.dart';
+import '../../../generated/l10n.dart';
 
 class ForumScreen extends StatefulWidget {
   const ForumScreen({super.key});
@@ -40,9 +41,8 @@ class _ForumScreenState extends State<ForumScreen> {
             InkWell(
                 onTap: (){
                   showModalBottomSheet(context: context, builder: (context) => const AddNewPost(),);
-                  // Get.toNamed(AppRoute.addnewpost);
                 },
-                child: const Text('+ Add New Post',style: TextStyle(color: Colors.blue),)),
+                child: Text('+ ${S.of(context).AddNewPost}',style: const TextStyle(color: Colors.blue),)),
             SizedBox(height: getProportionateScreenHeight(10),),
             Expanded(
               child: Consumer<MessageProvider>(
@@ -89,9 +89,9 @@ class _ForumScreenState extends State<ForumScreen> {
                             onTap: () {
                               Get.to(Comments(message: value.message[index],));
                             },
-                            child: const Text(
-                              'Comments',
-                              style: TextStyle(
+                            child: Text(
+                              S.of(context).Comment,
+                              style: const TextStyle(
                                   color: Colors.grey,
                                   decoration: TextDecoration.underline,
                                   decorationColor: Colors.grey),

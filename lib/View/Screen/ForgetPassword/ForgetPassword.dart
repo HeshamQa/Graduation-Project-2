@@ -3,6 +3,7 @@ import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/BackGround.dart';
 import '../../../Utils/Widget/CustomButton.dart';
 import '../../../Utils/Widget/LogoText.dart';
+import '../../../generated/l10n.dart';
 import 'components/ForgetFields.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -25,7 +26,7 @@ class ForgetPassword extends StatelessWidget {
                 const ForgetFields(),
                 SizedBox(height: getProportionateScreenHeight(50)),
                 CustomButton(
-                  text: 'Continue',
+                  text: S.of(context).Continue,
                   onTap: (){},
                 ),
               ],

@@ -5,6 +5,8 @@ import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import 'package:gradproject2/View/Screen/ProfileScreen/components/ProfileImage.dart';
 import 'package:gradproject2/View/Screen/ProfileScreen/components/TextFields.dart';
 
+import '../../../generated/l10n.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -25,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             SizedBox(height: getProportionateScreenHeight(15)),
             const TextForms(),
             const Spacer(),
-            CustomButton(text: 'save', onTap: () {}),
+            CustomButton(text: S.of(context).Save, onTap: () {}),
           ],
         ),
       ),

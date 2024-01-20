@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Widget/CustomButton.dart';
+import '../../../generated/l10n.dart';
 import 'components/ShowContainer.dart';
 
 class StatisticsShowScreen extends StatelessWidget {
@@ -24,7 +25,7 @@ class StatisticsShowScreen extends StatelessWidget {
             city: city,
           ),
           const Spacer(),
-          CustomButton(text: 'Back', onTap: () {Get.back();}),
+          CustomButton(text: S.of(context).Back, onTap: () {Get.back();}),
         ],
       ),
     );

@@ -5,6 +5,7 @@ import 'package:gradproject2/Utils/Widget/LogoText.dart';
 import '../../../Utils/Static/SizeConfig.dart';
 import '../../../Utils/Widget/TextForm.dart';
 import '../../../controller/auth/signup_controller.dart';
+import '../../../generated/l10n.dart';
 
 class SignUpScreen extends StatelessWidget {
   final TextEditingController userNameEditingController = TextEditingController();
@@ -31,29 +32,29 @@ class SignUpScreen extends StatelessWidget {
                 Column(
                   children: [
                     TextForm(
-                      hint: 'Enter your Name',
-                      label: 'UserName',
+                      hint: S.of(context).EnterYourName,
+                      label: S.of(context).UserName,
                       textEditingController: userNameEditingController,
                       obscure: false, enabled: true,
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
                     TextForm(
-                      hint: 'Enter your Email',
-                      label: 'Email',
+                      hint:S.of(context).EnterYourEmail,
+                      label: S.of(context).Email,
                       textEditingController: emailEditingController,
                       obscure: false, enabled: true,
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
                     TextForm(
-                      hint: 'Enter your Password',
-                      label: 'Email',
+                      hint: S.of(context).EnteryourPassword,
+                      label: S.of(context).Password,
                       textEditingController: passwordEditingController,
                       obscure: true, enabled: true,
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
                     TextForm(
-                      hint: 'Re enter your Password',
-                      label: 'Confirm Password',
+                      hint: 'Re ${S.of(context).EnteryourPassword}',
+                      label: S.of(context).ConfirmPassword,
                       textEditingController: reSetPasswordEditingController,
                       obscure: true, enabled: true,
                     ),
@@ -61,7 +62,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: getProportionateScreenHeight(50)),
                 CustomButton(
-                  text: 'SignUp',
+                  text: S.of(context).SignUp,
                   onTap: () {
                     if (passwordEditingController.text ==
                         reSetPasswordEditingController.text) {
@@ -70,11 +71,11 @@ class SignUpScreen extends StatelessWidget {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title: const Text('Sign Up Error'),
-                          content: const Text("Passwords isn't equals!!"),
+                          title:  Text(S.of(context).SignUpError),
+                          content:  Text("${S.of(context).Passwordsisntequals}!!"),
                           actions: [
                             TextButton(
-                              child: const Text('OK'),
+                              child: Text(S.of(context).OK),
                               onPressed: () => Navigator.pop(context),
                             ),
                           ],

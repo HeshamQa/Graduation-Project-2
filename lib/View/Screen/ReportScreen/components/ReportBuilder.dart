@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../Utils/Static/SizeConfig.dart';
 import '../../../../controller/provider/report_provider.dart';
+import '../../../../generated/l10n.dart';
 
 class ReportBuilder extends StatefulWidget {
   const ReportBuilder({
@@ -39,26 +40,29 @@ class _ReportBuilderState extends State<ReportBuilder> {
             boxShadow: const [BoxShadow(color: Colors.black54, blurRadius: 5)],
             borderRadius: BorderRadius.circular(15),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-               Text('${value.reports[index].Time} Report',style: const TextStyle(fontSize: 20),),
-              SizedBox(
-                height: getProportionateScreenHeight(15),
-              ),
-              InkWell(
-                onTap: () async {
-                  url= Uri.parse(value.reports[index].Url);
-                  if (await canLaunchUrl(url)) {
-                    await launchUrl(url);
-                  }
-                },
-                child: const Text(
-                  'Click here',
-                  style: TextStyle(color: Colors.blue),
+          child: SizedBox(
+            width: getProportionateScreenWidth(325),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                 Text('${value.reports[index].Time} ${S.of(context).Report}',style: const TextStyle(fontSize: 20),),
+                SizedBox(
+                  height: getProportionateScreenHeight(15),
                 ),
-              )
-            ],
+                InkWell(
+                  onTap: () async {
+                    url= Uri.parse(value.reports[index].Url);
+                    if (await canLaunchUrl(url)) {
+                      await launchUrl(url);
+                    }
+                  },
+                  child: Text(
+                    S.of(context).Clickhere,
+                    style: const TextStyle(color: Colors.blue),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

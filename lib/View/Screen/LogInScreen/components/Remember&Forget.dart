@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../Utils/Static/StaticColor.dart';
 import '../../../../Utils/Static/route.dart';
+import '../../../../generated/l10n.dart';
 
 class RememberForget extends StatelessWidget {
   const RememberForget({super.key});
@@ -20,9 +21,9 @@ class RememberForget extends StatelessWidget {
             // });
           },
         ),
-        const Text(
-          "Remember me",
-          style: TextStyle(
+        Text(
+          S.of(context).Rememberme,
+          style: const TextStyle(
             color:grey,
           ),
         ),
@@ -31,9 +32,9 @@ class RememberForget extends StatelessWidget {
           onTap: () {
             Get.toNamed(AppRoute.forget);
           },
-          child: const Text(
-            "Forget Password?",
-            style: TextStyle(
+          child: Text(
+            "${S.of(context).ForgetPassword}?",
+            style: const TextStyle(
               color: greendark,
               decorationColor: Colors.grey,
             ),
