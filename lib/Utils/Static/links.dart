@@ -10,6 +10,10 @@ const String linkGetStatistics = "$linkServerName/Home/viewstatistics.php";
 const String linkGetStatistics2 = "$linkServerName/Home/viewstatistics2.php";
 const String linkAddCrops = "$linkServerName/Home/addcrops.php";
 const String linkGetCrops = "$linkServerName/Home/viewcrops.php";
+const String linkUpdateUserName = "$linkServerName/Home/updateusername.php";
+const String linkUpdateEmail = "$linkServerName/Home/updateemail.php";
+const String linkUpdatePassword = "$linkServerName/Home/updatepassword.php";
+
 
 
 

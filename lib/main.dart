@@ -9,6 +9,7 @@ import 'package:gradproject2/View/Screen/HomeScreen/HomeScreen.dart';
 import 'package:gradproject2/View/Screen/LogInScreen/LoginScreen.dart';
 import 'package:gradproject2/controller/provider/current_weather_provider.dart';
 import 'package:gradproject2/controller/provider/statistics_provider.dart';
+import 'package:gradproject2/controller/provider/user_provider.dart';
 import 'package:gradproject2/controller/provider/weather_controller.dart';
 import 'package:gradproject2/generated/l10n.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<CropsProvider>(
           create: (context) => CropsProvider(),
+        ),
+        ChangeNotifierProvider<UserProvider>(
+          create: (context) => UserProvider(),
         ),
       ],
       child: GetMaterialApp(
