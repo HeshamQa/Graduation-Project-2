@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:gradproject2/Utils/Static/SizeConfig.dart';
 import 'package:gradproject2/Utils/Static/StaticColor.dart';
@@ -9,6 +10,7 @@ import 'package:gradproject2/View/Screen/LogInScreen/LoginScreen.dart';
 import 'package:gradproject2/controller/provider/current_weather_provider.dart';
 import 'package:gradproject2/controller/provider/statistics_provider.dart';
 import 'package:gradproject2/controller/provider/weather_controller.dart';
+import 'package:gradproject2/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'controller/provider/comments_provider.dart';
@@ -51,6 +53,14 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: GetMaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: S.delegate.supportedLocales,
+        locale: const Locale('ar'),
         title: 'Flutter Demo',
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
